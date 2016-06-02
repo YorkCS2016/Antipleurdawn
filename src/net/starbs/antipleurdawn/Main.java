@@ -19,9 +19,11 @@ public class Main extends Application {
 
         Scene main = new Scene(root, 500, 500);
 
+        main.getStylesheets().add("file:src/main.css");
         primaryStage.setScene(main);
         primaryStage.setTitle("Anti Chess");
         primaryStage.show();
+        board.squares[0][0].setPiece(new Piece(PieceType.PAWN, PlayerType.WHITE));
     }
 
 

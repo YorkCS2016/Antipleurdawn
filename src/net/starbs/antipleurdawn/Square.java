@@ -1,5 +1,6 @@
 package net.starbs.antipleurdawn;
 
+import javafx.scene.Group;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -23,11 +24,19 @@ public class Square {
             color = "grey";
         }
         pane.setStyle("-fx-background-color: " + color + ";");
+        pane.getChildren().add(new Group());
     }
 
     public void setPiece(Piece piece) {
         this.piece = piece;
-
         pane.getChildren().set(0, piece.getImage());
+    }
+
+    public void select(){
+        pane.getStyleClass().add("selected");
+    }
+
+    public void deselect() {
+        pane.getStyleClass().remove("selected");
     }
 }

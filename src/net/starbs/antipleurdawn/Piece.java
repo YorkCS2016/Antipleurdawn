@@ -1,5 +1,6 @@
 package net.starbs.antipleurdawn;
 
+import javafx.scene.Group;
 import javafx.scene.Node;
 
 /**
@@ -11,13 +12,13 @@ public class Piece {
 
     public Node getImage(){
         if(pieceType == PieceType.EMPTY){
-            return null;
+            return new Group();
         }
 
-        Spritesheet ss = new Spritesheet("./img/pieces.png", 450, 450);
+        Spritesheet ss = new Spritesheet("file:img/pieces.png", 450, 450);
         return ss.getSubImageCanvas(pieceType.ordinal() - 1, playerType.ordinal());
     }
-
+    
     public Piece(PieceType pieceType, PlayerType playerType){
         this.pieceType = pieceType;
         this.playerType = playerType;

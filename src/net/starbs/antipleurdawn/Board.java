@@ -1,8 +1,10 @@
 package net.starbs.antipleurdawn;
 
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Control;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
 /**
@@ -11,6 +13,7 @@ import javafx.scene.layout.*;
 public class Board{
     public Square[][] squares = new Square[8][8];
     public GridPane pane = new GridPane();
+    private Square selectedSquare = null;
 
     public void displayData(String data){
         if (data.length() != 128){ //2 per square, 8x8 squares
@@ -26,6 +29,23 @@ public class Board{
         }
     }
 
+    public void onSquareClicked(Square sq){
+        if(selectedSquare == null){
+            sq.select();
+            selectedSquare = sq;
+        }
+        else if(selectedSquare == sq){
+            sq.deselect();
+            selectedSquare = null;
+        }
+        else{
+            System.out.println("Made move");
+            //TODO: send request to server etc ...
+            selectedSquare.deselect();
+            selectedSquare = null;
+        }
+    }
+
     public Board() {
         super();
 
@@ -33,6 +53,15 @@ public class Board{
             for (int y = 0; y < 8; y++) {
                 Square sq = new Square(x, y);
                 pane.add(sq.pane, x, y);
+
+                sq.pane.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                    @Override
+                    public void handle(MouseEvent event){
+                        onSquareClicked(sq);
+                    }
+                });
+
+                squares[x][y] = sq;
             }
         }
 
