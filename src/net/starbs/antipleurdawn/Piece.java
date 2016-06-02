@@ -11,7 +11,12 @@ public class Piece {
     public PlayerType playerType;
 
     public Node getImage(){
-        throw new NotImplementedException();
+        if(pieceType == PieceType.EMPTY){
+            return null;
+        }
+
+        Spritesheet ss = new Spritesheet("./img/pieces.png", 450, 450);
+        return ss.getSubImageCanvas(pieceType.ordinal() - 1, playerType.ordinal());
     }
 
     public Piece(PieceType pieceType, PlayerType playerType){

@@ -26,6 +26,8 @@ public class Square {
     }
 
     public void setPiece(Piece piece) {
-
+        this.piece = piece;
+        
+        pane.getChildren().set(0, piece.getImage());
     }
 }
