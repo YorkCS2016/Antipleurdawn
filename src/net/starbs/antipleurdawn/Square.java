@@ -7,16 +7,9 @@ import javafx.scene.layout.StackPane;
  */
 public class Square {
     public StackPane pane = new StackPane();
+    public Piece piece;
     private int x;
     private int y;
-
-    public void setType(){
-
-    }
-
-    public void setPlayer(){
-
-    }
 
     public Square(int x, int y){
         this.x = x;
@@ -30,5 +23,9 @@ public class Square {
             color = "black";
         }
         pane.setStyle("-fx-background-color: " + color + ";");
+    }
+
+    public void setPiece(Piece piece) {
+
     }
 }

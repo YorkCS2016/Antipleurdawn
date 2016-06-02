@@ -1,10 +1,7 @@
 package net.starbs.antipleurdawn;
 
 import javafx.application.Application;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
 import javafx.scene.Scene;
-import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;

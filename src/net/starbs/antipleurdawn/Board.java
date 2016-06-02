@@ -1,10 +1,8 @@
 package net.starbs.antipleurdawn;
 
-import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
 import javafx.scene.control.Control;
-import javafx.scene.input.*;
 import javafx.scene.layout.*;
 
 /**
@@ -14,15 +12,10 @@ public class Board{
     public Square[][] squares = new Square[8][8];
     public GridPane pane = new GridPane();
 
-    public void displayData(PieceType[][] input){
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (input[i][j] != PieceType.EMPTY){
-
-                }
-                else{
-
-                }
+    public void displayData(Piece[][] pieces){
+        for (int x = 0; x < 8; x++) {
+            for (int y = 0; y < 8; y++) {
+                squares[x][y].setPiece(pieces[x][y]);
             }
         }
     }
