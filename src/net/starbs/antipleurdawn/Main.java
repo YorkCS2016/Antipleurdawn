@@ -14,23 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Label top = new Label("Anti Chess");
 
-        GridPane board = new GridPane();
-
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                StackPane square = new StackPane();
-                String color;
-
-                if ((i + j) % 2 == 0) {
-                    color = "white";
-                } else {
-                    color = "black";
-                }
-                square.setStyle("-fx-background-color: " + color + ";");
-
-                board.add(square, i, j);
-            }
-        }
+        Board board = new Board();
 
         for (int i = 0; i < 8; i++) {
             board.getColumnConstraints().add(new ColumnConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, HPos.CENTER, true));
