@@ -16,14 +16,9 @@ public class Main extends Application {
 
         Board board = new Board();
 
-        for (int i = 0; i < 8; i++) {
-            board.getColumnConstraints().add(new ColumnConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, HPos.CENTER, true));
-            board.getRowConstraints().add(new RowConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, VPos.CENTER, true));
-        }
-
         BorderPane root = new BorderPane();
         root.setTop(top);
-        root.setCenter(board);
+        root.setCenter(board.pane);
 
         Scene main = new Scene(root, 500, 500);
 

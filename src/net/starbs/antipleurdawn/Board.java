@@ -1,20 +1,23 @@
 package net.starbs.antipleurdawn;
 
 import javafx.event.EventHandler;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
+import javafx.scene.control.Control;
 import javafx.scene.input.*;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 
 /**
  * Created by Hickman on 02/06/2016.
  */
-public class Board extends GridPane {
-    private StackPane[][] squares = new StackPane[8][8];
+public class Board{
+    public Square[][] squares = new Square[8][8];
+    public GridPane pane = new GridPane();
 
-    public void displayData(Piece[][] input){
+    public void displayData(PieceType[][] input){
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                if (input[i][j] != Piece.EMPTY){
+                if (input[i][j] != PieceType.EMPTY){
 
                 }
                 else{
@@ -27,29 +30,16 @@ public class Board extends GridPane {
     public Board() {
         super();
 
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                squares[i][j] = new StackPane();
-                String color;
-
-                if ((i + j) % 2 == 0) {
-                    color = "white";
-                } else {
-                    color = "black";
-                }
-                squares[i][j].setStyle("-fx-background-color: " + color + ";");
-
-                final int _i = i;
-                final int _j = j;
-                final StackPane square = squares[i][j];
-                square.setOnMouseClicked(new EventHandler<MouseEvent>(){
-                    @Override
-                    public void handle(MouseEvent event){
-                    }
-                });
-
-                add(squares[i][j], i, j);
+        for (int x = 0; x < 8; x++) {
+            for (int y = 0; y < 8; y++) {
+                Square sq = new Square(x, y);
+                pane.add(sq.pane, x, y);
             }
+        }
+
+        for (int i = 0; i < 8; i++) {
+            pane.getColumnConstraints().add(new ColumnConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, HPos.CENTER, true));
+            pane.getRowConstraints().add(new RowConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, VPos.CENTER, true));
         }
     }
 }
