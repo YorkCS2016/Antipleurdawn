@@ -20,14 +20,14 @@ public class Spritesheet {
         spr_height = sprite_height;
     }
 
-    public Canvas getSubImageCanvas(int x, int y) {
-        Canvas result = new Canvas(spr_width, spr_height);
+    public Canvas getSubImageCanvas(int x, int y, int result_width, int result_height) {
+        Canvas result = new Canvas(result_width, result_height);
         result.getGraphicsContext2D().drawImage(
                 sheet,
-                x*spr_width,
-                y*spr_height,
-                spr_width,
-                spr_height);
+                x*spr_width, y*spr_height,
+                spr_width, spr_height,
+                0, 0,
+                result_width, result_height);
         return result;
     }
 }
