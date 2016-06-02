@@ -20,14 +20,14 @@ public class Square {
         if ((x + y) % 2 == 0) {
             color = "white";
         } else {
-            color = "black";
+            color = "grey";
         }
         pane.setStyle("-fx-background-color: " + color + ";");
     }
 
     public void setPiece(Piece piece) {
         this.piece = piece;
-        
+
         pane.getChildren().set(0, piece.getImage());
     }
 }

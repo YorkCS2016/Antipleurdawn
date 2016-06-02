@@ -12,10 +12,16 @@ public class Board{
     public Square[][] squares = new Square[8][8];
     public GridPane pane = new GridPane();
 
-    public void displayData(Piece[][] pieces){
+    public void displayData(String data){
+        if (data.length() != 128){ //2 per square, 8x8 squares
+            throw new IllegalArgumentException("The data specified need to be 128 characters long");
+        }
+
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
-                squares[x][y].setPiece(pieces[x][y]);
+                squares[x][y].setPiece(new Piece(
+                        PieceType.values()[data.charAt(x + y * 8)],
+                        PlayerType.values()[data.charAt(x + y * 8)]));
             }
         }
     }
