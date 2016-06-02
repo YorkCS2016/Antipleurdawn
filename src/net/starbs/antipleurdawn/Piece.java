@@ -16,7 +16,7 @@ public class Piece {
         }
 
         Spritesheet ss = new Spritesheet("file:img/pieces.png", 450, 450);
-        return ss.getSubImageCanvas(pieceType.ordinal() - 1, playerType.ordinal());
+        return ss.getSubImageCanvas(pieceType.ordinal() - 1, playerType.ordinal(), 100, 100);
     }
     
     public Piece(PieceType pieceType, PlayerType playerType){
