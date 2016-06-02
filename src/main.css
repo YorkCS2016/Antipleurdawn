@@ -1,0 +1,5 @@
+.selected{
+    -fx-border-style: solid;
+    -fx-border-width: 3px;
+    -fx-border-color: aqua;
+}
