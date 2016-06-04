@@ -2,6 +2,7 @@ package net.starbs.antipleurdawn;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -17,6 +18,7 @@ public class Main extends Application {
         root.setTop(top);
         root.setCenter(board.pane);
 
+        Scene main = new Scene(root, 550, 500, false, SceneAntialiasing.BALANCED);
         Scene main = new Scene(root, 500, 500);
 
         main.getStylesheets().add("file:src/main.css");
