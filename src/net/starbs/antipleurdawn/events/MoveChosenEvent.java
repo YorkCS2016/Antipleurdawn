@@ -6,7 +6,7 @@ import java.util.EventObject;
  * Created by sharr_000 on 6/4/2016.
  */
 public class MoveChosenEvent extends EventObject {
-    // Used by Board to signal to BoardOperator that a move has been taken.
+    // Used by BoardUI to signal to BoardOperator that a move has been taken.
 
     int[] from;
     int[] to;

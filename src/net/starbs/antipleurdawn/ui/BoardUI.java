@@ -4,6 +4,7 @@ import net.starbs.antipleurdawn.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import net.starbs.antipleurdawn.events.GameUpdatedEvent;
 import net.starbs.antipleurdawn.events.MoveChosenEvent;
 import net.starbs.antipleurdawn.events.MoveChosenEventListener;
 
@@ -37,6 +38,12 @@ public class BoardUI extends GridPane {
             }
         }
     }
+
+    void onGameUpdated(GameUpdatedEvent event) {
+        Piece[][] new_board = event.getBoard();
+        displayData(new_board);
+    }
+
 
     public void onSquareClicked(Square sq){
         if(selectedSquare == null){
