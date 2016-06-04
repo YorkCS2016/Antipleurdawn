@@ -10,10 +10,8 @@ import net.starbs.antipleurdawn.events.MoveChosenEventListener;
 
 import java.util.ArrayList;
 
-/**
- * Created by Hickman on 02/06/2016.
- */
-public class BoardUI extends GridPane {
+public class BoardUI extends GridPane
+{
     public Square[][] squares = new Square[8][8];
     private Square selectedSquare = null;
     private ColumnConstraints colConstraint = new ColumnConstraints();

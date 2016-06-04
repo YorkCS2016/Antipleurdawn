@@ -3,10 +3,8 @@ package net.starbs.antipleurdawn;
 import javafx.scene.Group;
 import javafx.scene.Node;
 
-/**
- * Created by Hickman on 02/06/2016.
- */
-public class Piece {
+public class Piece
+{
     public PieceType getPieceType() {
         return pieceType;
     }

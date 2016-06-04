@@ -3,11 +3,8 @@ package net.starbs.antipleurdawn;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 
-/**
- * Created by sharr_000 on 6/2/2016.
- */
-public class Spritesheet {
-
+public class Spritesheet
+{
     Image sheet;
     int spr_width;
     int spr_height;

@@ -13,7 +13,8 @@ import net.starbs.antipleurdawn.ui.BoardUI;
 
 import java.io.IOException;
 
-public class Main extends Application {
+public class Main extends Application
+{
     private final Client client;
     private BoardUI board;
     private BoardOperator boardOp;

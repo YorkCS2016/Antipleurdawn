@@ -2,9 +2,8 @@ package net.starbs.antipleurdawn.client;
 
 import net.starbs.antipleurdawn.PlayerType;
 
-public class ClientFactory {
-    // TODO
-
+public class ClientFactory
+{
     public ClientFactory(String uri) {
         // TODO
     }

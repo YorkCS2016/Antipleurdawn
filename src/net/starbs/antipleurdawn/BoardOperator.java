@@ -6,10 +6,8 @@ import net.starbs.antipleurdawn.events.MoveChosenEventListener;
 import net.starbs.antipleurdawn.exceptions.InvalidMoveException;
 import net.starbs.antipleurdawn.ui.BoardUI;
 
-/**
- * Created by sharr_000 on 6/4/2016.
- */
-public class BoardOperator implements MoveChosenEventListener{
+public class BoardOperator implements MoveChosenEventListener
+{
     BoardUI board;
     Client client;
 

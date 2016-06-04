@@ -3,9 +3,8 @@ package net.starbs.antipleurdawn.client;
 import net.starbs.antipleurdawn.PlayerType;
 import net.starbs.antipleurdawn.exceptions.InvalidMoveException;
 
-public class Client {
-    // TODO
-
+public class Client
+{
     public Client(String game, PlayerType player) {
         // TODO
     }

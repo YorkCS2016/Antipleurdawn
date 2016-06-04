@@ -4,10 +4,8 @@ import net.starbs.antipleurdawn.*;
 import javafx.scene.Group;
 import javafx.scene.layout.StackPane;
 
-/**
- * Created by Hickman on 02/06/2016.
- */
-public class Square extends StackPane {
+public class Square extends StackPane
+{
     public Piece piece;
 
     public int getX() {
