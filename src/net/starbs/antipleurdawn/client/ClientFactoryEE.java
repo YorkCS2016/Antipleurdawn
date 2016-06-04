@@ -6,20 +6,18 @@ import net.starbs.antipleurdawn.PlayerType;
  */
 public class ClientFactoryEE {
     // TODO
-    Client dummy;
 
     public ClientFactoryEE(String uri) {
         // TODO
-        Client dummy = new Client("", PlayerType.WHITE);
     }
 
-    public Client make() {
+    public static Client make() {
         // TODO
-        return dummy;
+        return new Client("", PlayerType.WHITE);
     }
 
-    public Client make(boolean new_game) {
+    public static Client make(boolean new_game) {
         // TODO
-        return dummy;
+        return new Client("", PlayerType.WHITE);
     }
 }

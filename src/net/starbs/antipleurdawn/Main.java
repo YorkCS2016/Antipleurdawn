@@ -7,29 +7,45 @@ import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import net.starbs.antipleurdawn.client.Client;
+import net.starbs.antipleurdawn.client.ClientFactoryEE;
+import net.starbs.antipleurdawn.events.GameUpdated;
 
 public class Main extends Application {
+
+    Board board;
+    TakenPieces whiteTakenPieces;
+    TakenPieces blackTakenPieces;
+    Client client;
+    BorderPane root;
+    BorderPane top;
+    BorderPane left;
+    BorderPane right;
+
+    public Main() {
+        super();
+        board = new Board();
+        whiteTakenPieces = new TakenPieces();
+        blackTakenPieces = new TakenPieces();
+        client = ClientFactoryEE.make();
+        root = new BorderPane();
+        top = new BorderPane();
+        left = new BorderPane();
+        right = new BorderPane();
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        BorderPane top = new BorderPane();
-
         Label chessLabel = new Label("Anti Chess");
         chessLabel.setAlignment(Pos.TOP_RIGHT);
         chessLabel.setId("title");
 
         top.setLeft(chessLabel);
 
-        TakenPieces yourTakenPieces = new TakenPieces();
-        TakenPieces oppTakenPieces = new TakenPieces();
-
-        Board board = new Board();
-
-        BorderPane root = new BorderPane();
         root.setTop(top);
         root.setCenter(board.pane);
-        root.setLeft(yourTakenPieces.pane);
-        root.setRight(oppTakenPieces.pane);
-
+        root.setLeft(whiteTakenPieces.pane);
+        root.setRight(blackTakenPieces.pane);
         Scene main = new Scene(root, 600, 400, false, SceneAntialiasing.BALANCED);
         main.getStylesheets().add("file:src/main.css");
         primaryStage.setScene(main);
@@ -43,6 +59,14 @@ public class Main extends Application {
         board.squares[0][0].setPiece(new Piece(PieceType.BISHOP, PlayerType.WHITE));*/
     }
 
+    void onGameUpdated(GameUpdated event) {
+        board.onGameUpdated(event);
+        if(event.getCurrentPlayer() == client.getPlayer()) {
+            // TODO: get player's move
+        } else {
+            // TODO: display waiting screen
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);
