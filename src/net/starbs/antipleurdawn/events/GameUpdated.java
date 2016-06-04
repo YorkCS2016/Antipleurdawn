@@ -19,7 +19,7 @@ public class GameUpdated {
         return new Piece[1][1];
     }
 
-    Piece[] getTakenPieces(PlayerType player) {
+    Piece[] getPiecesTakenBy(PlayerType player) {
         // TODO
         return new Piece[1];
     }
