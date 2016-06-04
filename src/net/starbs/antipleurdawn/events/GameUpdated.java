@@ -10,21 +10,21 @@ import net.starbs.antipleurdawn.PlayerType;
 public class GameUpdated {
     // TODO
 
-    GameUpdated() {
+    public GameUpdated() {
         // TODO
     }
 
-    Piece[][] getBoard() {
+    public Piece[][] getBoard() {
         // TODO
         return new Piece[1][1];
     }
 
-    Piece[] getPiecesTakenBy(PlayerType player) {
+    public Piece[] getPiecesTakenBy(PlayerType player) {
         // TODO
         return new Piece[1];
     }
 
-    PlayerType getCurrentPlayer() {
+    public PlayerType getCurrentPlayer() {
         // TODO
         return PlayerType.WHITE;
     }

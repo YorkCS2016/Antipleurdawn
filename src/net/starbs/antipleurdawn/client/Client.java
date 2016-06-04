@@ -8,15 +8,15 @@ import net.starbs.antipleurdawn.PlayerType;
 public class Client {
     // TODO
 
-    Client(String game, PlayerType player) {
+    public Client(String game, PlayerType player) {
         // TODO
     }
 
-    void Move(int[] from, int[] to) {
+    public void Move(int[] from, int[] to) {
         // TODO
     }
 
-    void forfeit() {
+    public void forfeit() {
         // TODO
     }
 
