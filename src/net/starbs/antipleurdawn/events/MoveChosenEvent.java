@@ -5,6 +5,7 @@ import java.util.EventObject;
 /**
  * Created by sharr_000 on 6/4/2016.
  */
+@SuppressWarnings("serial")
 public class MoveChosenEvent extends EventObject {
     // Used by BoardUI to signal to BoardOperator that a move has been taken.
 
