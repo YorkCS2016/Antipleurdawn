@@ -23,6 +23,7 @@ public class Square {
         } else {
             color = "grey";
         }
+        pane.getStyleClass().add("square");
         pane.setStyle("-fx-background-color: " + color + ";");
         pane.getChildren().add(new Group());
     }

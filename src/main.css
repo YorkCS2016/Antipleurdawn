@@ -14,3 +14,7 @@
     -fx-padding: 20px;
     -fx-alignment: top-left;
 }
+
+.panels{
+    -fx-padding: 10px;
+}

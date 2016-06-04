@@ -1,9 +1,8 @@
 package net.starbs.antipleurdawn;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
-import javafx.scene.control.Control;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
@@ -14,6 +13,8 @@ public class Board{
     public Square[][] squares = new Square[8][8];
     public GridPane pane = new GridPane();
     private Square selectedSquare = null;
+    private ColumnConstraints colConstraint = new ColumnConstraints();
+    private RowConstraints rowConstraints = new RowConstraints();
 
     public void displayData(String data){
         if (data.length() != 128){ //2 per square, 8x8 squares
@@ -46,6 +47,19 @@ public class Board{
         }
     }
 
+    private void onSizeChange(){
+        double maxDimensionSize = pane.getScene().getWidth() - 200 < pane.getScene().getHeight()
+                ? pane.getScene().getHeight(): pane.getScene().getWidth() - 200;
+
+        rowConstraints.setMinHeight(maxDimensionSize/8);
+        rowConstraints.setMaxHeight(maxDimensionSize/8);
+        rowConstraints.setPrefHeight(maxDimensionSize/8);
+
+        colConstraint.setMinWidth(maxDimensionSize/8);
+        colConstraint.setMaxWidth(maxDimensionSize/8);
+        colConstraint.setPrefWidth(maxDimensionSize/8);
+    }
+
     public Board() {
         super();
 
@@ -65,9 +79,17 @@ public class Board{
             }
         }
 
+        //onSizeChange();
+        colConstraint.setPercentWidth(12.5);
+        rowConstraints.setPercentHeight(12.5);
+
         for (int i = 0; i < 8; i++) {
-            pane.getColumnConstraints().add(new ColumnConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, HPos.CENTER, true));
-            pane.getRowConstraints().add(new RowConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, VPos.CENTER, true));
+            pane.getColumnConstraints().add(colConstraint);
+            pane.getRowConstraints().add(rowConstraints);
         }
+        //pane.heightProperty().
+
+        //pane.getScene().heightProperty().addListener((x, y, z) -> onSizeChange());
+        //pane.getScene().widthProperty().addListener((x, y, z) -> onSizeChange());
     }
 }
