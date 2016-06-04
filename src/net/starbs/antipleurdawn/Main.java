@@ -7,8 +7,25 @@ import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import net.starbs.antipleurdawn.client.Client;
+import net.starbs.antipleurdawn.client.ClientFactoryEE;
+import net.starbs.antipleurdawn.events.GameUpdated;
 
 public class Main extends Application {
+
+    Board board;
+    TakenPieces whiteTakenPieces;
+    TakenPieces blackTakenPieces;
+    Client client;
+
+    public Main() {
+        super();
+        board = new Board();
+        whiteTakenPieces = new TakenPieces();
+        blackTakenPieces = new TakenPieces();
+        client = ClientFactoryEE.make();
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         BorderPane top = new BorderPane();
@@ -19,17 +36,11 @@ public class Main extends Application {
 
         top.setLeft(chessLabel);
 
-        TakenPieces yourTakenPieces = new TakenPieces();
-        TakenPieces oppTakenPieces = new TakenPieces();
-
-        Board board = new Board();
-
         BorderPane root = new BorderPane();
         root.setTop(top);
         root.setCenter(board.pane);
 
         Scene main = new Scene(root, 550, 500, false, SceneAntialiasing.BALANCED);
-        Scene main = new Scene(root, 500, 500);
 
         main.getStylesheets().add("file:src/main.css");
         primaryStage.setScene(main);
@@ -37,7 +48,6 @@ public class Main extends Application {
         primaryStage.show();
         board.squares[0][0].setPiece(new Piece(PieceType.PAWN, PlayerType.WHITE));
     }
-
 
     public static void main(String[] args) {
         launch(args);

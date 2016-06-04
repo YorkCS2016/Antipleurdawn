@@ -12,8 +12,13 @@ public class Client {
         // TODO
     }
 
-    public void Move(int[] from, int[] to) {
+    public void move(int[] from, int[] to) {
         // TODO
+    }
+
+    public PlayerType getPlayer() {
+        // TODO
+        return PlayerType.BLACK;
     }
 
     public void forfeit() {
