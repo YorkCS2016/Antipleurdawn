@@ -1,4 +1,6 @@
-package net.starbs.antipleurdawn;
+package net.starbs.antipleurdawn.client;
+
+import net.starbs.antipleurdawn.PlayerType;
 
 /**
  * Created by sharr_000 on 6/4/2016.
