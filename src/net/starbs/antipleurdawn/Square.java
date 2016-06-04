@@ -40,4 +40,8 @@ public class Square {
     public void deselect() {
         pane.getStyleClass().remove("selected");
     }
+
+    public int getX() { return x; }
+
+    public int getY() { return y; }
 }
