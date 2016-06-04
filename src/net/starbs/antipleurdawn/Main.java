@@ -17,6 +17,10 @@ public class Main extends Application {
     TakenPieces whiteTakenPieces;
     TakenPieces blackTakenPieces;
     Client client;
+    BorderPane root;
+    BorderPane top;
+    BorderPane left;
+    BorderPane right;
 
     public Main() {
         super();
@@ -24,19 +28,20 @@ public class Main extends Application {
         whiteTakenPieces = new TakenPieces();
         blackTakenPieces = new TakenPieces();
         client = ClientFactoryEE.make();
+        root = new BorderPane();
+        top = new BorderPane();
+        left = new BorderPane();
+        right = new BorderPane();
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        BorderPane top = new BorderPane();
-
         Label chessLabel = new Label("Anti Chess");
         chessLabel.setAlignment(Pos.TOP_RIGHT);
         chessLabel.setId("title");
 
         top.setLeft(chessLabel);
 
-        BorderPane root = new BorderPane();
         root.setTop(top);
         root.setCenter(board.pane);
 
@@ -47,6 +52,15 @@ public class Main extends Application {
         primaryStage.setTitle("Anti Chess");
         primaryStage.show();
         board.squares[0][0].setPiece(new Piece(PieceType.PAWN, PlayerType.WHITE));
+    }
+
+    void onGameUpdated(GameUpdated event) {
+        board.onGameUpdated(event);
+        if(event.getCurrentPlayer() == client.getPlayer()) {
+            // TODO: get player's move
+        } else {
+            // TODO: display waiting screen
+        }
     }
 
     public static void main(String[] args) {
