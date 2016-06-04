@@ -1,5 +1,16 @@
 .selected{
     -fx-border-style: solid;
     -fx-border-width: 3px;
-    -fx-border-color: aqua;
+    -fx-border-color: #26204c;
+}
+
+.square{
+    /*-fx-padding: -100000px;FIXME: This shouldn't be necessary*/
+}
+
+#title{
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial";
+    -fx-padding: 20px;
+    -fx-alignment: top-left;
 }
