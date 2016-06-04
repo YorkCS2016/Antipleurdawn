@@ -4,15 +4,16 @@ import net.starbs.antipleurdawn.client.Client;
 import net.starbs.antipleurdawn.events.MoveChosenEvent;
 import net.starbs.antipleurdawn.events.MoveChosenEventListener;
 import net.starbs.antipleurdawn.exceptions.InvalidMoveException;
+import net.starbs.antipleurdawn.ui.BoardUI;
 
 /**
  * Created by sharr_000 on 6/4/2016.
  */
 public class BoardOperator implements MoveChosenEventListener{
-    Board board;
+    BoardUI board;
     Client client;
 
-    public BoardOperator(Board new_board, Client new_client) {
+    public BoardOperator(BoardUI new_board, Client new_client) {
         board = new_board;
         board.addMoveChosenEventListener(this);
         client = new_client;
@@ -26,7 +27,7 @@ public class BoardOperator implements MoveChosenEventListener{
         }
     }
 
-    Board getBoard() {
+    BoardUI getBoard() {
         return board;
     }
 

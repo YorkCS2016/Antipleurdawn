@@ -9,16 +9,19 @@ import javafx.stage.Stage;
 import net.starbs.antipleurdawn.client.Client;
 import net.starbs.antipleurdawn.client.ClientFactoryEE;
 import net.starbs.antipleurdawn.events.GameUpdatedEvent;
+import net.starbs.antipleurdawn.ui.BoardUI;
 
 import java.io.IOException;
 
 public class Main extends Application {
     private final Client client;
-    //private final BoardOperator boardOp;
+    private BoardUI board;
+    private BoardOperator boardOp;
 
     public Main(){
         client = ClientFactoryEE.make();
-        //boardOp = new BoardOperator(board, client);
+        board = null;
+        boardOp = null;
     }
 
     public void start(Stage primaryStage) throws IOException{
@@ -28,6 +31,9 @@ public class Main extends Application {
         Scene main = new Scene(root, 670, 400, false, SceneAntialiasing.BALANCED);
 
         main.getStylesheets().add("file:src/main.css");
+
+        board = (BoardUI) main.lookup("#board");
+        boardOp = new BoardOperator(board, client);
 
         primaryStage.setScene(main);
         primaryStage.setTitle("Anti Chess");
