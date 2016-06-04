@@ -5,7 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import net.starbs.antipleurdawn.events.GameUpdated;
+import net.starbs.antipleurdawn.events.GameUpdatedEvent;
 
 /**
  * Created by Hickman on 02/06/2016.
@@ -49,7 +49,7 @@ public class Board{
     }
 
 
-    void onGameUpdated(GameUpdated event) {
+    void onGameUpdated(GameUpdatedEvent event) {
         Piece[][] new_board = event.getBoard();
         for(int x = 0; x < 8; x++) {
             for(int y = 0; y < 8; y++) {

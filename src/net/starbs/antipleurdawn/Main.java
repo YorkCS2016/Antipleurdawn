@@ -9,7 +9,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.client.Client;
 import net.starbs.antipleurdawn.client.ClientFactoryEE;
-import net.starbs.antipleurdawn.events.GameUpdated;
+import net.starbs.antipleurdawn.events.GameUpdatedEvent;
 
 public class Main extends Application {
 
@@ -59,7 +59,7 @@ public class Main extends Application {
         board.squares[0][0].setPiece(new Piece(PieceType.BISHOP, PlayerType.WHITE));*/
     }
 
-    void onGameUpdated(GameUpdated event) {
+    void onGameUpdated(GameUpdatedEvent event) {
         board.onGameUpdated(event);
         if(event.getCurrentPlayer() == client.getPlayer()) {
             // TODO: get player's move
