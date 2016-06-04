@@ -21,6 +21,7 @@ public class Main extends Application {
     BorderPane top;
     BorderPane left;
     BorderPane right;
+    BoardOperator boardOp;
 
     public Main() {
         super();
@@ -32,6 +33,7 @@ public class Main extends Application {
         top = new BorderPane();
         left = new BorderPane();
         right = new BorderPane();
+        boardOp = new BoardOperator(board, client);
     }
 
     @Override
@@ -39,9 +41,7 @@ public class Main extends Application {
         Label chessLabel = new Label("Anti Chess");
         chessLabel.setAlignment(Pos.TOP_RIGHT);
         chessLabel.setId("title");
-
         top.setLeft(chessLabel);
-
         root.setTop(top);
         root.setCenter(board.pane);
         root.setLeft(whiteTakenPieces.pane);
@@ -51,19 +51,11 @@ public class Main extends Application {
         primaryStage.setScene(main);
         primaryStage.setTitle("Anti Chess");
         primaryStage.show();
-/*
-        yourTakenPieces.displayPieces(new Piece[]{
-                new Piece(PieceType.BISHOP, PlayerType.WHITE)
-        });
-
-        board.squares[0][0].setPiece(new Piece(PieceType.BISHOP, PlayerType.WHITE));*/
     }
 
     void onGameUpdated(GameUpdatedEvent event) {
         board.onGameUpdated(event);
-        if(event.getCurrentPlayer() == client.getPlayer()) {
-            // TODO: get player's move
-        } else {
+        if(event.getCurrentPlayer() != client.getPlayer()) {
             // TODO: display waiting screen
         }
     }
