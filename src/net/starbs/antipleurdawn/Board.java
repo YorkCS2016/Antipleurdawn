@@ -6,6 +6,7 @@ import javafx.geometry.VPos;
 import javafx.scene.control.Control;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import net.starbs.antipleurdawn.events.GameUpdated;
 
 /**
  * Created by Hickman on 02/06/2016.
@@ -43,6 +44,15 @@ public class Board{
             //TODO: send request to server etc ...
             selectedSquare.deselect();
             selectedSquare = null;
+        }
+    }
+
+    void onGameUpdated(GameUpdated event) {
+        Piece[][] new_board = event.getBoard();
+        for(int x = 0; x < 8; x++) {
+            for(int y = 0; y < 8; y++) {
+                squares[y][x].setPiece(new_board[y][x]);
+            }
         }
     }
 

@@ -8,11 +8,11 @@ import net.starbs.antipleurdawn.PlayerType;
 public class GameEnded {
     // TODO
 
-    GameEnded() {
+    public GameEnded() {
         // TODO
     }
 
-    PlayerType getWinner() {
+    public PlayerType getWinner() {
         // TODO
         return PlayerType.BLACK;
     }
