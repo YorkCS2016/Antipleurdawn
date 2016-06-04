@@ -1,3 +1,7 @@
+*{
+    -fx-background-color: #abb8ff;
+}
+
 .selected{
     -fx-border-style: solid;
     -fx-border-width: 3px;
@@ -6,15 +10,41 @@
 
 .square{
     /*-fx-padding: -100000px;FIXME: This shouldn't be necessary*/
+    -fx-border-style: solid;
 }
 
-#title{
+* > .square{
+    /*-fx-padding: -100000px;FIXME: This shouldn't be necessary*/
+    -fx-border-style: solid;
+}
+
+.panels{
+    -fx-padding: 10px;
+    -fx-background-color: #8995d0;
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-insets: 0 5px 0 5px;
+}
+
+.board{
+    -fx-border-style: solid;
+}
+
+.topPanel{
     -fx-font-size: 20px;
     -fx-font-family: "Arial";
     -fx-padding: 20px;
     -fx-alignment: top-left;
 }
 
-.panels{
-    -fx-padding: 10px;
+.overlay{
+    -fx-background-color: radial-gradient(/*center 20 20, */radius 100%,darkgray, black);
+    -fx-min-width: 100%;
+    -fx-min-height: 100%;
+    -fx-opacity: 30%;
+}
+
+.waitingBox{
+    -fx-padding: 100px;
+    -fx-text-fill: white;
 }

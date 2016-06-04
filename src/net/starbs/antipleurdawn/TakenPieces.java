@@ -1,8 +1,7 @@
 package net.starbs.antipleurdawn;
 
-import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.StackPane;
 
 /**
  * Created by Hickman on 04/06/2016.
