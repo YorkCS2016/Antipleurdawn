@@ -1,9 +1,8 @@
 package net.starbs.antipleurdawn;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
-import javafx.scene.control.Control;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import net.starbs.antipleurdawn.events.GameUpdated;
@@ -15,6 +14,8 @@ public class Board{
     public Square[][] squares = new Square[8][8];
     public GridPane pane = new GridPane();
     private Square selectedSquare = null;
+    private ColumnConstraints colConstraint = new ColumnConstraints();
+    private RowConstraints rowConstraints = new RowConstraints();
 
     public void displayData(String data){
         if (data.length() != 128){ //2 per square, 8x8 squares
@@ -47,6 +48,7 @@ public class Board{
         }
     }
 
+
     void onGameUpdated(GameUpdated event) {
         Piece[][] new_board = event.getBoard();
         for(int x = 0; x < 8; x++) {
@@ -75,9 +77,17 @@ public class Board{
             }
         }
 
+        //onSizeChange();
+        colConstraint.setPercentWidth(12.5);
+        rowConstraints.setPercentHeight(12.5);
+
         for (int i = 0; i < 8; i++) {
-            pane.getColumnConstraints().add(new ColumnConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, HPos.CENTER, true));
-            pane.getRowConstraints().add(new RowConstraints(5, Control.USE_COMPUTED_SIZE, Double.POSITIVE_INFINITY, Priority.ALWAYS, VPos.CENTER, true));
+            pane.getColumnConstraints().add(colConstraint);
+            pane.getRowConstraints().add(rowConstraints);
         }
+        //pane.heightProperty().
+
+        //pane.getScene().heightProperty().addListener((x, y, z) -> onSizeChange());
+        //pane.getScene().widthProperty().addListener((x, y, z) -> onSizeChange());
     }
 }

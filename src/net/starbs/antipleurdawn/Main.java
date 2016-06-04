@@ -44,14 +44,19 @@ public class Main extends Application {
 
         root.setTop(top);
         root.setCenter(board.pane);
-
-        Scene main = new Scene(root, 550, 500, false, SceneAntialiasing.BALANCED);
-
+        root.setLeft(yourTakenPieces.pane);
+        root.setRight(oppTakenPieces.pane);
+        Scene main = new Scene(root, 600, 400, false, SceneAntialiasing.BALANCED);
         main.getStylesheets().add("file:src/main.css");
         primaryStage.setScene(main);
         primaryStage.setTitle("Anti Chess");
         primaryStage.show();
-        board.squares[0][0].setPiece(new Piece(PieceType.PAWN, PlayerType.WHITE));
+/*
+        yourTakenPieces.displayPieces(new Piece[]{
+                new Piece(PieceType.BISHOP, PlayerType.WHITE)
+        });
+
+        board.squares[0][0].setPiece(new Piece(PieceType.BISHOP, PlayerType.WHITE));*/
     }
 
     void onGameUpdated(GameUpdated event) {
