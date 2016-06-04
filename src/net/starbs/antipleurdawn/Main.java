@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.client.Client;
-import net.starbs.antipleurdawn.client.ClientFactoryEE;
+import net.starbs.antipleurdawn.client.ClientFactory;
 import net.starbs.antipleurdawn.events.GameUpdatedEvent;
 import net.starbs.antipleurdawn.ui.BoardUI;
 
@@ -19,7 +19,7 @@ public class Main extends Application {
     private BoardOperator boardOp;
 
     public Main(){
-        client = ClientFactoryEE.make();
+        client = ClientFactory.make();
         board = null;
         boardOp = null;
     }
