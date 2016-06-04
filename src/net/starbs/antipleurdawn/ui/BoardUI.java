@@ -4,7 +4,10 @@ import net.starbs.antipleurdawn.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import net.starbs.antipleurdawn.events.GameUpdated;
+import net.starbs.antipleurdawn.events.MoveChosenEvent;
+import net.starbs.antipleurdawn.events.MoveChosenEventListener;
+
+import java.util.ArrayList;
 
 /**
  * Created by Hickman on 02/06/2016.
@@ -14,6 +17,18 @@ public class BoardUI extends GridPane {
     private Square selectedSquare = null;
     private ColumnConstraints colConstraint = new ColumnConstraints();
     private RowConstraints rowConstraints = new RowConstraints();
+
+    private ArrayList<MoveChosenEventListener> event_listeners = new ArrayList<MoveChosenEventListener>();;
+
+    public void addMoveChosenEventListener(MoveChosenEventListener listener) {
+        event_listeners.add(listener);
+    }
+
+    private void fireMoveChosenEvent(MoveChosenEvent event) {
+        for(int i = 0; i < event_listeners.size(); i++) {
+            event_listeners.get(i).moveChosenEventOccurred(event);
+        }
+    }
 
     public void displayData(Piece[][] data){
         for (int x = 0; x < 8; x++) {
@@ -33,16 +48,15 @@ public class BoardUI extends GridPane {
             selectedSquare = null;
         }
         else{
-            System.out.println("Made move");
-            //TODO: send request to server etc ... - dispatch event
+            int[] pnt_from = {sq.getX(), sq.getY()};
+            int[] pnt_to = {selectedSquare.getX(), selectedSquare.getY()};
+            fireMoveChosenEvent(new MoveChosenEvent(this, pnt_from, pnt_to));
             selectedSquare.deselect();
             selectedSquare = null;
         }
     }
 
     public BoardUI() {
-        super();
-
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
                 Square sq = new Square(x, y);

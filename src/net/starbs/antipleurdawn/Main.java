@@ -6,11 +6,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.stage.Stage;
+import net.starbs.antipleurdawn.client.Client;
+import net.starbs.antipleurdawn.client.ClientFactoryEE;
+import net.starbs.antipleurdawn.events.GameUpdatedEvent;
 
 import java.io.IOException;
 
 public class Main extends Application {
-    @Override
+    private final Client client;
+    //private final BoardOperator boardOp;
+
+    public Main(){
+        client = ClientFactoryEE.make();
+        //boardOp = new BoardOperator(board, client);
+    }
+
     public void start(Stage primaryStage) throws IOException{
 
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
@@ -32,6 +42,12 @@ public class Main extends Application {
         */
     }
 
+    void onGameUpdated(GameUpdatedEvent event) {
+        //board.onGameUpdated(event);
+        if(event.getCurrentPlayer() != client.getPlayer()) {
+            // TODO: display waiting screen
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);

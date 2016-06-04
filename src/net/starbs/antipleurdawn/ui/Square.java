@@ -12,7 +12,20 @@ import java.util.Stack;
 public class Square extends StackPane {
     public Piece piece;
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    private int x;
+    private int y;
+
     public Square(int x, int y){
+        this.x = x;
+        this.y = y;
 
         String color;
 

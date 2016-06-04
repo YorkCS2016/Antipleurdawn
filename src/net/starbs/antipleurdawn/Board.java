@@ -1,7 +1,7 @@
 package net.starbs.antipleurdawn;
 
-import net.starbs.antipleurdawn.events.GameUpdated;
-import net.starbs.antipleurdawn.ui.BoardUI;
+import net.starbs.antipleurdawn.ui.*;
+import net.starbs.antipleurdawn.events.GameUpdatedEvent;
 
 /**
  * Created by Hickman on 02/06/2016.
@@ -9,7 +9,7 @@ import net.starbs.antipleurdawn.ui.BoardUI;
 public class Board{
     private BoardUI ui;
 
-    void onGameUpdated(GameUpdated event) {
+    void onGameUpdated(GameUpdatedEvent event) {
         Piece[][] new_board = event.getBoard();
         ui.displayData(new_board);
     }
