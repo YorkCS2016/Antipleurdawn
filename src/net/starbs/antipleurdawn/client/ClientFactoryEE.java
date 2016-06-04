@@ -8,17 +8,17 @@ public class ClientFactoryEE {
     // TODO
     Client dummy;
 
-    ClientFactoryEE(String uri) {
+    public ClientFactoryEE(String uri) {
         // TODO
         Client dummy = new Client("", PlayerType.WHITE);
     }
 
-    Client make() {
+    public Client make() {
         // TODO
         return dummy;
     }
 
-    Client make(boolean new_game) {
+    public Client make(boolean new_game) {
         // TODO
         return dummy;
     }

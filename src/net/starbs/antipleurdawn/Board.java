@@ -5,6 +5,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import net.starbs.antipleurdawn.events.GameUpdated;
 
 /**
  * Created by Hickman on 02/06/2016.
@@ -47,17 +48,14 @@ public class Board{
         }
     }
 
-    private void onSizeChange(){
-        double maxDimensionSize = pane.getScene().getWidth() - 200 < pane.getScene().getHeight()
-                ? pane.getScene().getHeight(): pane.getScene().getWidth() - 200;
 
-        rowConstraints.setMinHeight(maxDimensionSize/8);
-        rowConstraints.setMaxHeight(maxDimensionSize/8);
-        rowConstraints.setPrefHeight(maxDimensionSize/8);
-
-        colConstraint.setMinWidth(maxDimensionSize/8);
-        colConstraint.setMaxWidth(maxDimensionSize/8);
-        colConstraint.setPrefWidth(maxDimensionSize/8);
+    void onGameUpdated(GameUpdated event) {
+        Piece[][] new_board = event.getBoard();
+        for(int x = 0; x < 8; x++) {
+            for(int y = 0; y < 8; y++) {
+                squares[y][x].setPiece(new_board[y][x]);
+            }
+        }
     }
 
     public Board() {
