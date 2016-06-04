@@ -4,16 +4,13 @@ import net.starbs.antipleurdawn.PlayerType;
 
 public class ClientFactory
 {
-    public ClientFactory(String uri) {
+    public ClientFactory(String uri)
+    {
         // TODO
     }
 
-    public static Client make() {
-        // TODO
-        return new Client("", PlayerType.WHITE);
-    }
-
-    public static Client make(boolean new_game) {
+    public static Client make()
+    {
         // TODO
         return new Client("", PlayerType.WHITE);
     }

@@ -1,25 +1,27 @@
 package net.starbs.antipleurdawn.client;
 
 import net.starbs.antipleurdawn.PlayerType;
-import net.starbs.antipleurdawn.exceptions.InvalidMoveException;
 
 public class Client
 {
-    public Client(String game, PlayerType player) {
+    public Client(String game, PlayerType player)
+    {
         // TODO
     }
 
-    public void move(int[] from, int[] to) throws InvalidMoveException{
+    public void move(int[] from, int[] to)
+    {
         // TODO
     }
 
-    public PlayerType getPlayer() {
+    public PlayerType getPlayer()
+    {
         // TODO
         return PlayerType.BLACK;
     }
 
-    public void forfeit() {
+    public void forfeit()
+    {
         // TODO
     }
-
 }
