@@ -44,8 +44,8 @@ public class Main extends Application {
 
         root.setTop(top);
         root.setCenter(board.pane);
-        root.setLeft(yourTakenPieces.pane);
-        root.setRight(oppTakenPieces.pane);
+        root.setLeft(whiteTakenPieces.pane);
+        root.setRight(blackTakenPieces.pane);
         Scene main = new Scene(root, 600, 400, false, SceneAntialiasing.BALANCED);
         main.getStylesheets().add("file:src/main.css");
         primaryStage.setScene(main);
