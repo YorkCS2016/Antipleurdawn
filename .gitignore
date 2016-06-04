@@ -1,9 +1,7 @@
-# Intellij project files
-
 Antipleurdawn.iml
 out
 .idea
-
-# Images
-
-img/*
+.classpath
+.project
+bin
+img
