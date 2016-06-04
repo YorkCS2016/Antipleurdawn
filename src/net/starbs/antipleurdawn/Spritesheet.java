@@ -3,8 +3,6 @@ package net.starbs.antipleurdawn;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 
-import java.awt.image.BufferedImage;
-
 /**
  * Created by sharr_000 on 6/2/2016.
  */
