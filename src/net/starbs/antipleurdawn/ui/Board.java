@@ -21,13 +21,15 @@ public class Board extends GridPane
         event_listeners.add(listener);
     }
 
-    private void fireMoveChosenEvent(MoveChosenEvent event) {
+    private void fireMoveChosenEvent(MoveChosenEvent event)
+    {
         for(int i = 0; i < event_listeners.size(); i++) {
             event_listeners.get(i).moveChosenEventOccurred(event);
         }
     }
 
-    public void displayData(Piece[][] data){
+    public void displayData(Piece[][] data)
+    {
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
                 squares[x][y].setPiece(data[x][y]);
@@ -35,13 +37,15 @@ public class Board extends GridPane
         }
     }
 
-    public void onGameUpdated(GameUpdatedEvent event) {
+    public void onGameUpdated(GameUpdatedEvent event)
+    {
         Piece[][] newBoard = event.getBoard();
         displayData(newBoard);
     }
 
 
-    public void onSquareClicked(Square sq){
+    public void onSquareClicked(Square sq)
+    {
         if(selectedSquare == null){
             sq.select();
             selectedSquare = sq;
@@ -59,7 +63,8 @@ public class Board extends GridPane
         }
     }
 
-    public Board() {
+    public Board()
+    {
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
                 Square sq = new Square(x, y);

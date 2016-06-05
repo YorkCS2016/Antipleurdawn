@@ -52,18 +52,19 @@ public class BoardHandler implements HandlerInterface
         }
     }
 
-    public void displayCapturedPieces(Piece[] yourCaptures, Piece[] oppCaptures){
+    public void displayCapturedPieces(Piece[] yourCaptures, Piece[] oppCaptures)
+    {
         FlowPane yourCapturesUI = (FlowPane) scene.lookup("yourCaptures");
         FlowPane oppCapturesUI = (FlowPane) scene.lookup("oppCaptures");
 
         yourCapturesUI.getChildren().removeAll();
         oppCapturesUI.getChildren().removeAll();
 
-        for(Piece yourCapture: yourCaptures){
+        for (Piece yourCapture : yourCaptures) {
             yourCapturesUI.getChildren().add(yourCapture.getImage());
         }
 
-        for(Piece oppCapture: oppCaptures){
+        for (Piece oppCapture: oppCaptures) {
             oppCapturesUI.getChildren().add(oppCapture.getImage());
         }
     }
