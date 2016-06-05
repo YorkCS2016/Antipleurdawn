@@ -24,8 +24,7 @@ public class Client
 
     public PlayerType getPlayer()
     {
-        // TODO
-        return PlayerType.BLACK;
+        return player;
     }
 
     public void forfeit()
