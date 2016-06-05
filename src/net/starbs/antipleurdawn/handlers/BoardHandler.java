@@ -25,10 +25,9 @@ public class BoardHandler implements HandlerInterface
 
     public void onGameUpdated(GameUpdatedEvent event)
     {
-        // TODO
-        // displayCapturedPieces(event.getPiecesTakenBy(client.getPlayer()), event.getPiecesTakenBy(client.getOpponent()));
+        displayCapturedPieces(event.getPiecesTakenBy(client.getPlayer()), event.getPiecesTakenBy(client.getOpponent()));
 
-        board.onGameUpdated(event);
+        board.displayData(event.getBoard());
 
         if (event.getCurrentPlayer() == client.getPlayer()) {
             System.out.println("Make your move now.");
@@ -37,21 +36,22 @@ public class BoardHandler implements HandlerInterface
         }
     }
 
+    // TODO
     private void displayCapturedPieces(Piece[] yourCaptures, Piece[] oppCaptures)
     {
-        FlowPane yourCapturesUI = (FlowPane) scene.lookup("yourCaptures");
-        FlowPane oppCapturesUI = (FlowPane) scene.lookup("oppCaptures");
-
-        yourCapturesUI.getChildren().removeAll();
-        oppCapturesUI.getChildren().removeAll();
-
-        for (Piece yourCapture : yourCaptures) {
-            yourCapturesUI.getChildren().add(yourCapture.getImage());
-        }
-
-        for (Piece oppCapture: oppCaptures) {
-            oppCapturesUI.getChildren().add(oppCapture.getImage());
-        }
+//        FlowPane yourCapturesUI = (FlowPane) scene.lookup("yourCaptures");
+//        FlowPane oppCapturesUI = (FlowPane) scene.lookup("oppCaptures");
+//
+//        yourCapturesUI.getChildren().removeAll();
+//        oppCapturesUI.getChildren().removeAll();
+//
+//        for (Piece yourCapture : yourCaptures) {
+//            yourCapturesUI.getChildren().add(yourCapture.getImage());
+//        }
+//
+//        for (Piece oppCapture: oppCaptures) {
+//            oppCapturesUI.getChildren().add(oppCapture.getImage());
+//        }
     }
 
     private void displayWaitingScreen()

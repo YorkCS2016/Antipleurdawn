@@ -58,12 +58,6 @@ public class Board extends GridPane
         }
     }
 
-    public void onGameUpdated(GameUpdatedEvent event)
-    {
-        Piece[][] newBoard = event.getBoard();
-        displayData(newBoard);
-    }
-
     public void onSquareClicked(Square sq)
     {
         if (selected == null){
