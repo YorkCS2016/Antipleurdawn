@@ -20,7 +20,7 @@ public class Main extends Application
     private Board board;
     private BoardOperator boardOp;
 
-    public Main()
+    public Main() throws IOException
     {
         client = (new ClientFactory()).make();
         board = null;
