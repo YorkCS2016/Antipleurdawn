@@ -1,18 +1,11 @@
 Antipleurdawn.iml
 out
 .idea
-<<<<<<< HEAD
-
-# Images
-
-img/*
 
 # Exclude .jars
 
 lib/*
-=======
+
 .classpath
 .project
 bin
-img
->>>>>>> 2a4e1aa935768c427c8954cb55f6a15036c7f200

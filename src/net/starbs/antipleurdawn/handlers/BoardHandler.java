@@ -2,6 +2,8 @@ package net.starbs.antipleurdawn.handlers;
 
 import javafx.scene.Scene;
 import javafx.scene.effect.BoxBlur;
+import javafx.scene.layout.FlowPane;
+import net.starbs.antipleurdawn.Piece;
 import net.starbs.antipleurdawn.client.Client;
 import net.starbs.antipleurdawn.events.GameEndedEvent;
 import net.starbs.antipleurdawn.events.GameUpdatedEvent;
@@ -47,6 +49,22 @@ public class BoardHandler implements HandlerInterface
             System.out.println("You win!");
         } else {
             System.out.println("You are a burden on modern society.");
+        }
+    }
+
+    public void displayCapturedPieces(Piece[] yourCaptures, Piece[] oppCaptures){
+        FlowPane yourCapturesUI = (FlowPane) scene.lookup("yourCaptures");
+        FlowPane oppCapturesUI = (FlowPane) scene.lookup("oppCaptures");
+
+        yourCapturesUI.getChildren().removeAll();
+        oppCapturesUI.getChildren().removeAll();
+
+        for(Piece yourCapture: yourCaptures){
+            yourCapturesUI.getChildren().add(yourCapture.getImage());
+        }
+
+        for(Piece oppCapture: oppCaptures){
+            oppCapturesUI.getChildren().add(oppCapture.getImage());
         }
     }
 }

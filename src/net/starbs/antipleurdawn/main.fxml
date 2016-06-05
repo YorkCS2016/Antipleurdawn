@@ -1,15 +1,25 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
 <?import net.starbs.antipleurdawn.ui.* ?>
+<?import javafx.scene.image.ImageView?>
 <StackPane>
     <BorderPane id="main">
         <top>
             <BorderPane id="topPanel">
                 <left>
-                    <Label id="title" text="" />
+                    <HBox id="title">
+                        <ImageView fitWidth="40" preserveRatio="true" smooth="true">
+                            <Image url="file:img/logo.png">
+                            </Image>
+                        </ImageView>
+                        <Label id="titleText" text="Anti-Chess" />
+                    </HBox>
                 </left>
                 <right>
-                    <Label id="playerDesc" styleClass="up1, white" text="White Player" />
+                    <StackPane>
+                        <Label id="playerDesc" styleClass="up1, white" text="White Player" />
+                    </StackPane>
                 </right>
             </BorderPane>
         </top>
@@ -18,13 +28,13 @@
         </center>
         <left>
             <StackPane styleClass="panelCont1">
-                <FlowPane prefWrapLength="130" styleClass="panels, up1">
+                <FlowPane prefWrapLength="130" id="yourCaptures" styleClass="panels, up1">
                 </FlowPane>
             </StackPane>
         </left>
         <right>
             <StackPane styleClass="panelCont2">
-                <FlowPane prefWrapLength="130" styleClass="panels, up1">
+                <FlowPane prefWrapLength="130" id="oppCaptures" styleClass="panels, up1">
                 </FlowPane>
             </StackPane>
         </right>
