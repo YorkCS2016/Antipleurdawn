@@ -20,6 +20,11 @@ public class Client
         this.player = player;
     }
 
+    public PlayerType getPlayer()
+    {
+        return player;
+    }
+
     public void move(int[] from, int[] to) throws IOException
     {
         String uri = "game/" + game + "/move?player=" + (player == PlayerType.WHITE ? "0" : "1");
@@ -41,13 +46,8 @@ public class Client
         }
     }
 
-    public PlayerType getPlayer()
-    {
-        return player;
-    }
-
     public void forfeit()
     {
-        //
+        http.send("forfiet?player=" + (player == PlayerType.WHITE ? "0" : "1"))
     }
 }
