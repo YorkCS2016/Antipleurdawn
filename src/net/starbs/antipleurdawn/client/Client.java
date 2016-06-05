@@ -46,8 +46,8 @@ public class Client
         }
     }
 
-    public void forfeit()
+    public void forfeit() throws IOException
     {
-        http.send("forfiet?player=" + (player == PlayerType.WHITE ? "0" : "1"))
+        http.send("forfiet?player=" + (player == PlayerType.WHITE ? "0" : "1"));
     }
 }
