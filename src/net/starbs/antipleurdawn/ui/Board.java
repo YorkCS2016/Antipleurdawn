@@ -12,27 +12,48 @@ import java.util.ArrayList;
 
 public class Board extends GridPane
 {
-    public Square[][] squares = new Square[8][8];
-    private Square selectedSquare = null;
+    private Square[][] squares = new Square[8][8];
 
-    private ArrayList<MoveChosenEventListener> event_listeners = new ArrayList<MoveChosenEventListener>();;
+    private Square selected = null;
 
-    public void addMoveChosenEventListener(MoveChosenEventListener listener) {
-        event_listeners.add(listener);
+    private ArrayList<MoveChosenEventListener> listeners = new ArrayList<MoveChosenEventListener>();
+
+    public Board()
+    {
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Square sq = new Square(row, col);
+                add(sq, row, col);
+
+                sq.setOnMouseClicked(new EventHandler<MouseEvent>(){
+                    @Override
+                    public void handle(MouseEvent event){
+                        onSquareClicked(sq);
+                    }
+                });
+
+                squares[row][col] = sq;
+            }
+        }
+    }
+   
+    public void addMoveChosenEventListener(MoveChosenEventListener listener)
+    {
+        listeners.add(listener);
     }
 
     private void fireMoveChosenEvent(MoveChosenEvent event)
     {
-        for(int i = 0; i < event_listeners.size(); i++) {
-            event_listeners.get(i).moveChosenEventOccurred(event);
+        for (MoveChosenEventListener listener : listeners) {
+        	listener.moveChosenEventOccurred(event);
         }
     }
 
     public void displayData(Piece[][] data)
     {
-        for (int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
-                squares[x][y].setPiece(data[x][y]);
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                squares[row][col].setPiece(data[row][col]);
             }
         }
     }
@@ -43,42 +64,20 @@ public class Board extends GridPane
         displayData(newBoard);
     }
 
-
     public void onSquareClicked(Square sq)
     {
-        if(selectedSquare == null){
+        if (selected == null){
             sq.select();
-            selectedSquare = sq;
-        }
-        else if(selectedSquare == sq){
+            selected = sq;
+        } else if(selected == sq){
             sq.deselect();
-            selectedSquare = null;
-        }
-        else{
-            int[] pnt_from = {sq.getX(), sq.getY()};
-            int[] pnt_to = {selectedSquare.getX(), selectedSquare.getY()};
-            fireMoveChosenEvent(new MoveChosenEvent(this, pnt_from, pnt_to));
-            selectedSquare.deselect();
-            selectedSquare = null;
-        }
-    }
-
-    public Board()
-    {
-        for (int x = 0; x < 8; x++) {
-            for (int y = 0; y < 8; y++) {
-                Square sq = new Square(x, y);
-                add(sq, x, y);
-
-                sq.setOnMouseClicked(new EventHandler<MouseEvent>(){
-                    @Override
-                    public void handle(MouseEvent event){
-                        onSquareClicked(sq);
-                    }
-                });
-
-                squares[x][y] = sq;
-            }
+            selected = null;
+        } else{
+            int[] from = {sq.getRow(), sq.getCol()};
+            int[] to = {selected.getRow(), selected.getCol()};
+            fireMoveChosenEvent(new MoveChosenEvent(this, from, to));
+            selected.deselect();
+            selected = null;
         }
     }
 }

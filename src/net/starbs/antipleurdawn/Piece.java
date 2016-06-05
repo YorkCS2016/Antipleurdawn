@@ -5,7 +5,10 @@ import javafx.scene.Node;
 
 public class Piece
 {
+    public static final String LOCATION = "img/pieces.png";
+
     private PieceType piece;
+
     private PlayerType player;
 
     public Piece(PieceType piece, PlayerType player)
@@ -14,7 +17,7 @@ public class Piece
         this.player = player;
     }
 
-    public PieceType getPiece() 
+    public PieceType getPiece()
     {
         return piece;
     }
@@ -26,11 +29,11 @@ public class Piece
 
     public Node getImage()
     {
-        if (piece == null){
+        if (piece == null) {
             return new Group();
         }
 
-        Spritesheet ss = new Spritesheet("file:img/pieces.png", 450, 450);
+        Spritesheet ss = new Spritesheet("file:" + LOCATION, 450, 450);
 
         return ss.getSubImageCanvas(piece.ordinal(), player.ordinal(), 40, 40);
     }

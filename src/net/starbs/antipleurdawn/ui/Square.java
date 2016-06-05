@@ -8,11 +8,11 @@ public class Square extends StackPane
 {
     public Piece piece;
 
-    public int getX() {
+    public int getRow() {
         return x;
     }
 
-    public int getY() {
+    public int getCol() {
         return y;
     }
 

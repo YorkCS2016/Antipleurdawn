@@ -32,6 +32,11 @@ public class Client
         return player;
     }
 
+    public PlayerType getOpponent()
+    {
+        return player == PlayerType.WHITE ? PlayerType.BLACK : PlayerType.WHITE ;
+    }
+
     public void move(int[] from, int[] to) throws IOException
     {
         String uri = "game/" + game + "/move?player=" + (player == PlayerType.WHITE ? "0" : "1");

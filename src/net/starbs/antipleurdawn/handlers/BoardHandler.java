@@ -24,11 +24,31 @@ public class BoardHandler implements HandlerInterface
 
     public void onGameUpdated(GameUpdatedEvent event)
     {
+    	displayCapturedPieces(event.getPiecesTakenBy(client.getPlayer()), event.getPiecesTakenBy(client.getOpponent()));
+
         board.onGameUpdated(event);
+
         if (event.getCurrentPlayer() == client.getPlayer()) {
             System.out.println("Make your move now.");
         } else {
             displayWaitingScreen();
+        }
+    }
+
+    private void displayCapturedPieces(Piece[] yourCaptures, Piece[] oppCaptures)
+    {
+        FlowPane yourCapturesUI = (FlowPane) scene.lookup("yourCaptures");
+        FlowPane oppCapturesUI = (FlowPane) scene.lookup("oppCaptures");
+
+        yourCapturesUI.getChildren().removeAll();
+        oppCapturesUI.getChildren().removeAll();
+
+        for (Piece yourCapture : yourCaptures) {
+            yourCapturesUI.getChildren().add(yourCapture.getImage());
+        }
+
+        for (Piece oppCapture: oppCaptures) {
+            oppCapturesUI.getChildren().add(oppCapture.getImage());
         }
     }
 
@@ -49,23 +69,6 @@ public class BoardHandler implements HandlerInterface
             System.out.println("You win!");
         } else {
             System.out.println("You are a burden on modern society.");
-        }
-    }
-
-    public void displayCapturedPieces(Piece[] yourCaptures, Piece[] oppCaptures)
-    {
-        FlowPane yourCapturesUI = (FlowPane) scene.lookup("yourCaptures");
-        FlowPane oppCapturesUI = (FlowPane) scene.lookup("oppCaptures");
-
-        yourCapturesUI.getChildren().removeAll();
-        oppCapturesUI.getChildren().removeAll();
-
-        for (Piece yourCapture : yourCaptures) {
-            yourCapturesUI.getChildren().add(yourCapture.getImage());
-        }
-
-        for (Piece oppCapture: oppCaptures) {
-            oppCapturesUI.getChildren().add(oppCapture.getImage());
         }
     }
 }
