@@ -1,9 +1,5 @@
 *{
-    -fx-background-color: #393276;
-}
 
-#main{
-    -fx-padding: 200px;
 }
 
 .selected{
@@ -11,6 +7,11 @@
     -fx-border-width: 3px;
     -fx-border-color: #a8a52e !important;
     -fx-padding: 0px !important;
+}
+
+#main{
+    -fx-padding:20px;
+    -fx-background-color: #393276;
 }
 
 #title{
@@ -58,21 +59,31 @@
     -fx-padding:10px;
 }
 
-#title{
+#title {
     -fx-padding: 15px;
     -fx-font-size: 20px;
     -fx-font-family: "Arial";
 }
 
-.overlay{
-    -fx-background-color: radial-gradient(/*center 20 20, */radius 100%,darkgray, black);
-    -fx-min-width: 100%;
-    -fx-min-height: 100%;
+#overlay{
+    visibility: hidden;
+}
+
+.overlayBackground {
+    -fx-background-color: radial-gradient(/*center 20 20, */ radius 100%, darkgray, black);
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
     -fx-opacity: 30%;
 }
 
 .waitingBox{
-    -fx-padding: 100px;
+    -fx-max-width: 300px;
+    -fx-max-height: 70px;
+    -fx-background-color: black;
+    -fx-fill-width: false;
+}
+
+.waitingBox > * {
     -fx-text-fill: white;
 }
 

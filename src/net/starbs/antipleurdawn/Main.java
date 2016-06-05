@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
+import javafx.scene.effect.BoxBlur;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.client.Client;
 import net.starbs.antipleurdawn.client.ClientFactory;
@@ -37,7 +38,14 @@ public class Main extends Application
 
         board = (Board) main.lookup("#board");
         boardOp = new BoardOperator(board, client);
+/*
+        BoxBlur bb = new BoxBlur();
+        bb.setWidth(5);
+        bb.setHeight(5);
+        bb.setIterations(1);
 
+        main.lookup("#main").setEffect(bb);
+*/
         primaryStage.setScene(main);
         primaryStage.setTitle("Anti Chess");
         primaryStage.setResizable(false);

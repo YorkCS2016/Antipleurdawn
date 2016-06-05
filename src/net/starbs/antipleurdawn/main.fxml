@@ -1,8 +1,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import net.starbs.antipleurdawn.ui.* ?>
-<StackPane id="main">
-    <BorderPane>
+<StackPane>
+    <BorderPane id="main">
         <top>
             <BorderPane id="topPanel">
                 <left>
@@ -29,4 +29,11 @@
             </StackPane>
         </right>
     </BorderPane>
+    <StackPane id="overlay">
+        <StackPane styleClass="overlayBackground">
+        </StackPane>
+        <StackPane styleClass="waitingBox">
+            <Label text="Waiting for other player ..." />
+        </StackPane>
+    </StackPane>
 </StackPane>
