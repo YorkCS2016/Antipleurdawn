@@ -17,7 +17,7 @@ public class PusherHandler implements SubscriptionEventListener
 
     public void onEvent(String channel, String event, String data)
     {
-        if (event == "GameUpdatedEvent") {
+        if (event.equals("GameUpdatedEvent")) {
             handler.onGameUpdated(new GameUpdatedEvent(data));
         } else {
             handler.onGameEnded(new GameEndedEvent(data));
