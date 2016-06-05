@@ -44,6 +44,16 @@ public class Main extends Application
         updatePlayerTypeBox(scene);
     }
 
+    @Override
+    public void stop()
+    {
+        try {
+			client.forfeit();
+		} catch (Exception e) {
+			//
+		}
+    }
+
     public void updatePlayerTypeBox(Scene scene)
     {
         Label desc = (Label) scene.lookup("#playerDesc");
