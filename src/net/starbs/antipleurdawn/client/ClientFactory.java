@@ -26,9 +26,9 @@ public class ClientFactory
     {
         JsonObject data = http.send("game").parse().getAsJsonObject("data");
 
-        String game = data.getAsJsonObject("game").getAsString();
+        String game = data.getAsJsonPrimitive("game").getAsString();
 
-        PlayerType player = data.getAsJsonObject("player").getAsInt() == 0 ? PlayerType.WHITE : PlayerType.BLACK;
+        PlayerType player = data.getAsJsonPrimitive("player").getAsInt() == 0 ? PlayerType.WHITE : PlayerType.BLACK;
 
         return new Client(http, game, player);
     }
