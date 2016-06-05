@@ -28,13 +28,13 @@
         </center>
         <left>
             <StackPane styleClass="panelCont1">
-                <FlowPane prefWrapLength="130" styleClass="panels, up1">
+                <FlowPane prefWrapLength="130" id="yourCaptures" styleClass="panels, up1">
                 </FlowPane>
             </StackPane>
         </left>
         <right>
             <StackPane styleClass="panelCont2">
-                <FlowPane prefWrapLength="130" styleClass="panels, up1">
+                <FlowPane prefWrapLength="130" id="oppCaptures" styleClass="panels, up1">
                 </FlowPane>
             </StackPane>
         </right>
