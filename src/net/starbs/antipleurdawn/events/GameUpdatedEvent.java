@@ -35,7 +35,8 @@ public class GameUpdatedEvent implements EventInterface
         for (JsonElement row : array) {
             int j = 0;
             for (JsonElement el : row.getAsJsonArray()) {
-                board[i][j] = new Piece(PieceType.values()[el.getAsInt()], PlayerType.values()[el.getAsInt()]);
+                JsonArray data = el.getAsJsonArray();
+                board[i][j] = new Piece(PieceType.values()[data.get(0).getAsInt()], PlayerType.values()[data.get(1).getAsInt()]);
                 j++;
             }
             i++;
