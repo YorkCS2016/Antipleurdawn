@@ -44,6 +44,9 @@ public class HttpClient
 
             Response response = new Response(con.getResponseCode(), buffer.toString());
 
+            // TODO: remove this at the end
+            System.out.println(response.getMessage());
+            
             if (response.getCode() >= 300) {
                 if (response.getCode() >= 500) {
                     throw new HttpServerException(response);
