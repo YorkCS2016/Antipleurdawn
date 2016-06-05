@@ -14,7 +14,7 @@
             </BorderPane>
         </top>
         <center>
-            <BoardUI styleClass="up1" id="board"/>
+            <Board styleClass="up1" id="board"/>
         </center>
         <left>
             <StackPane styleClass="panelCont1">

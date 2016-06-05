@@ -7,19 +7,20 @@ import javafx.scene.Scene;
 import javafx.scene.SceneAntialiasing;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.client.Client;
-import net.starbs.antipleurdawn.client.ClientFactoryEE;
+import net.starbs.antipleurdawn.client.ClientFactory;
 import net.starbs.antipleurdawn.events.GameUpdatedEvent;
-import net.starbs.antipleurdawn.ui.BoardUI;
+import net.starbs.antipleurdawn.ui.Board;
 
 import java.io.IOException;
 
-public class Main extends Application {
+public class Main extends Application
+{
     private final Client client;
-    private BoardUI board;
+    private Board board;
     private BoardOperator boardOp;
 
     public Main(){
-        client = ClientFactoryEE.make();
+        client = ClientFactory.make();
         board = null;
         boardOp = null;
     }
@@ -32,7 +33,7 @@ public class Main extends Application {
 
         main.getStylesheets().add("file:src/main.css");
 
-        board = (BoardUI) main.lookup("#board");
+        board = (Board) main.lookup("#board");
         boardOp = new BoardOperator(board, client);
 
         primaryStage.setScene(main);

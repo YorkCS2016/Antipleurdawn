@@ -1,15 +1,12 @@
 package net.starbs.antipleurdawn.events;
 
-import javafx.event.Event;
 import net.starbs.antipleurdawn.Piece;
 import net.starbs.antipleurdawn.PlayerType;
-
 import java.util.EventObject;
 
-/**
- * Created by sharr_000 on 6/4/2016.
- */
-public class GameUpdatedEvent extends EventObject {
+@SuppressWarnings("serial")
+public class GameUpdatedEvent extends EventObject
+{
     // TODO
 
     public GameUpdatedEvent(Object source) {
