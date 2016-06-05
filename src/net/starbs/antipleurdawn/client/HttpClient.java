@@ -32,7 +32,13 @@ public class HttpClient
         wr.flush();
         wr.close();
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        BufferedReader in;
+
+        try {
+            in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+        } catch (IOException e) {
+            in = new BufferedReader(new InputStreamReader(con.getErrorStream()));
+        }
 
         try {
             String inputLine;
@@ -49,8 +55,8 @@ public class HttpClient
                     throw new HttpServerException(response);
                 } else {
                     throw new HttpClientException(response);
-                  }
-              }
+                }
+            }
 
             return response;
         } finally {
