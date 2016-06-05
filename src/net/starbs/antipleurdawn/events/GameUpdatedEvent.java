@@ -25,7 +25,7 @@ public class GameUpdatedEvent implements EventInterface
 
         initBoard(element.getAsJsonArray("board"));
         initTaken(element.getAsJsonArray("taken"));
-        initCurrent(element.getAsJsonPrimitive("curent").getAsInt());
+        initCurrent(element.getAsJsonPrimitive("current").getAsInt());
     }
 
     private void initBoard(JsonArray array)
@@ -36,7 +36,11 @@ public class GameUpdatedEvent implements EventInterface
             int j = 0;
             for (JsonElement el : row.getAsJsonArray()) {
                 JsonArray data = el.getAsJsonArray();
-                board[i][j] = new Piece(PieceType.values()[data.get(0).getAsInt()], PlayerType.values()[data.get(1).getAsInt()]);
+
+                board[i][j] = new Piece(
+                		data.get(0).isJsonNull() ? null : PieceType.values()[data.get(0).getAsInt()],
+                		data.get(1).isJsonNull() ? null : PlayerType.values()[data.get(1).getAsInt()]
+                );
                 j++;
             }
             i++;
