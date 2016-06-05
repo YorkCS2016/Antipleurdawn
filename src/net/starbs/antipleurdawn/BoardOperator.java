@@ -7,28 +7,23 @@ import net.starbs.antipleurdawn.ui.Board;
 
 public class BoardOperator implements MoveChosenEventListener
 {
-    Board board;
-    Client client;
+    private Board board;
+    private Client client;
 
-    public BoardOperator(Board new_board, Client new_client) {
-        board = new_board;
-        board.addMoveChosenEventListener(this);
-        client = new_client;
+    public BoardOperator(Board board, Client client)
+    {
+        this.board = board;
+        this.board.addMoveChosenEventListener(this);
+        this.client = client;
     }
 
-    public void moveChosenEventOccurred(MoveChosenEvent event) {
+    public void moveChosenEventOccurred(MoveChosenEvent event)
+    {
         try {
             client.move(event.getFrom(), event.getTo());
         } catch (Exception e) {
+            // TODO: change this
             System.out.println(e.getMessage());
         }
-    }
-
-    Board getBoard() {
-        return board;
-    }
-
-    Client getClient() {
-        return client;
     }
 }
