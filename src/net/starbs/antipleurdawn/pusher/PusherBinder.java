@@ -28,6 +28,8 @@ public class PusherBinder
 
         Pusher pusher = new Pusher(key, options);
 
+        pusher.connect();
+
         channel = pusher.subscribe(client.getGame());
     }
 
