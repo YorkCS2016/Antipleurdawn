@@ -35,7 +35,7 @@ public class Board extends GridPane
         }
     }
 
-    void onGameUpdated(GameUpdatedEvent event) {
+    public void onGameUpdated(GameUpdatedEvent event) {
         Piece[][] new_board = event.getBoard();
         displayData(new_board);
     }

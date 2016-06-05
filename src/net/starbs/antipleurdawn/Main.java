@@ -51,9 +51,11 @@ public class Main extends Application
 
     void onGameUpdated(GameUpdatedEvent event)
     {
-        //board.onGameUpdated(event);
-        if (event.getCurrentPlayer() != client.getPlayer()) {
-            // TODO: display waiting screen
+        board.onGameUpdated(event);
+        if (event.getCurrentPlayer() == client.getPlayer()) {
+            System.out.println("Make your move now.");
+        } else {
+            System.out.println("Opponent is making a move.");
         }
     }
 
