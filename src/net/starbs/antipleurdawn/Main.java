@@ -46,6 +46,7 @@ public class Main extends Application
                 new Piece(PieceType.BISHOP, PlayerType.WHITE)
         });*/
         primaryStage.show();
+        updatePlayerTypeBox();
     }
 
     public void displayWaitingScreen(){
@@ -61,18 +62,17 @@ public class Main extends Application
     public void updatePlayerTypeBox(){
         Label desc = (Label)main.lookup("#playerDesc");
         if(client.getPlayer() == PlayerType.BLACK) {
-            desc.getStyleClass().set(1, "black");
+            desc.getStyleClass().set(2, "black");
             desc.setText("Black Player");
         }
         else{
-            desc.getStyleClass().set(1, "white");
+            desc.getStyleClass().set(2, "white");
             desc.setText("White Player");
         }
     }
 
     public void onGameUpdated(GameUpdatedEvent event) {
         board.onGameUpdated(event);
-        updatePlayerTypeBox();
         if (event.getCurrentPlayer() == client.getPlayer()) {
             System.out.println("Make your move now.");
         } else {

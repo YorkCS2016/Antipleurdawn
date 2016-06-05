@@ -21,10 +21,12 @@
 
 #playerDesc.white{
     -fx-background-color: #837EB1;
+    -fx-text-fill: #0D083B;
 }
 
 #playerDesc.black{
     -fx-background-color: #0D083B;
+    -fx-text-fill: #837EB1;
 }
 
 #playerDesc{
