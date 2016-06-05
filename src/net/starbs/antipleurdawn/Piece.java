@@ -5,28 +5,33 @@ import javafx.scene.Node;
 
 public class Piece
 {
-    public PieceType getPieceType() {
-        return pieceType;
+    private PieceType piece;
+    private PlayerType player;
+
+    public Piece(PieceType piece, PlayerType player)
+    {
+        this.piece = piece;
+        this.player = player;
     }
 
-    public PlayerType getPlayerType() {
-        return playerType;
+    public PieceType getPiece() 
+    {
+        return piece;
     }
 
-    private PieceType pieceType;
-    private PlayerType playerType;
+    public PlayerType getPlayer()
+    {
+        return player;
+    }
 
-    public Node getImage(){
-        if(pieceType == null){
+    public Node getImage()
+    {
+        if (piece == null){
             return new Group();
         }
 
         Spritesheet ss = new Spritesheet("file:img/pieces.png", 450, 450);
-        return ss.getSubImageCanvas(pieceType.ordinal() - 1, playerType.ordinal(), 40, 40);
-    }
-    
-    public Piece(PieceType pieceType, PlayerType playerType){
-        this.pieceType = pieceType;
-        this.playerType = playerType;
+
+        return ss.getSubImageCanvas(piece.ordinal(), player.ordinal(), 40, 40);
     }
 }

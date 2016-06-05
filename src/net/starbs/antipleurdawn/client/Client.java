@@ -20,6 +20,11 @@ public class Client
         this.player = player;
     }
 
+    public String getGame()
+    {
+        return game;
+    }
+
     public PlayerType getPlayer()
     {
         return player;
