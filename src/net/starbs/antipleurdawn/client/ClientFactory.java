@@ -4,14 +4,22 @@ import net.starbs.antipleurdawn.PlayerType;
 
 public class ClientFactory
 {
-    public ClientFactory(String uri)
+    public static final String URI = "https://negasaurus.starbs.net/";
+
+    private HttpClient http;
+
+    public ClientFactory()
     {
-        // TODO
+        http = new HttpClient(URI);
     }
 
-    public static Client make()
+    public ClientFactory(String uri)
     {
-        // TODO
-        return new Client("", PlayerType.WHITE);
+        http = new HttpClient(uri);
+    }
+
+    public Client make()
+    {
+        return new Client(http, "", PlayerType.WHITE);
     }
 }

@@ -1,17 +1,25 @@
 package net.starbs.antipleurdawn.client;
 
+import java.io.IOException;
+
 import net.starbs.antipleurdawn.PlayerType;
 
 public class Client
 {
-    public Client(String game, PlayerType player)
+    private HttpClient http;
+    private String game;
+    private PlayerType player;
+
+    public Client(HttpClient http, String game, PlayerType player)
     {
-        // TODO
+        this.http = http;
+        this.game = game;
+        this.player = player;
     }
 
-    public void move(int[] from, int[] to)
+    public void move(int[] from, int[] to) throws IOException
     {
-        // TODO
+        http.send("game/" + game + "/move?from_row=" + from[0]);
     }
 
     public PlayerType getPlayer()

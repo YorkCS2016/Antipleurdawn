@@ -15,18 +15,19 @@ import java.io.IOException;
 
 public class Main extends Application
 {
-    private final Client client;
+    private Client client;
     private Board board;
     private BoardOperator boardOp;
 
-    public Main(){
-        client = ClientFactory.make();
+    public Main()
+    {
+        client = (new ClientFactory()).make();
         board = null;
         boardOp = null;
     }
 
-    public void start(Stage primaryStage) throws IOException{
-
+    public void start(Stage primaryStage) throws IOException
+    {
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
 
         Scene main = new Scene(root, 710, 440, false, SceneAntialiasing.BALANCED);
@@ -48,14 +49,16 @@ public class Main extends Application
 
     }
 
-    void onGameUpdated(GameUpdatedEvent event) {
+    void onGameUpdated(GameUpdatedEvent event)
+    {
         //board.onGameUpdated(event);
-        if(event.getCurrentPlayer() != client.getPlayer()) {
+        if (event.getCurrentPlayer() != client.getPlayer()) {
             // TODO: display waiting screen
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         launch(args);
     }
 }
