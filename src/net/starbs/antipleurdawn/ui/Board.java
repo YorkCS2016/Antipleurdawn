@@ -36,7 +36,7 @@ public class Board extends GridPane
             }
         }
     }
-   
+
     public void addMoveChosenEventListener(MoveChosenEventListener listener)
     {
         listeners.add(listener);
@@ -45,7 +45,7 @@ public class Board extends GridPane
     private void fireMoveChosenEvent(MoveChosenEvent event)
     {
         for (MoveChosenEventListener listener : listeners) {
-        	listener.moveChosenEventOccurred(event);
+            listener.moveChosenEventOccurred(event);
         }
     }
 

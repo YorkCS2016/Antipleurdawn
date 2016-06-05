@@ -11,8 +11,8 @@ import net.starbs.antipleurdawn.exceptions.HttpServerException;
 
 public class HttpClient
 {
-	public static final String AGENT = "antiplerdawn/1.0";
-	
+    public static final String AGENT = "antiplerdawn/1.0";
+
     private String uri;
 
     public HttpClient(String uri)

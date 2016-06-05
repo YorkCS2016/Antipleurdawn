@@ -38,8 +38,8 @@ public class GameUpdatedEvent implements EventInterface
                 JsonArray data = el.getAsJsonArray();
 
                 board[i][j] = new Piece(
-                		data.get(0).isJsonNull() ? null : PieceType.values()[data.get(0).getAsInt()],
-                		data.get(1).isJsonNull() ? null : PlayerType.values()[data.get(1).getAsInt()]
+                        data.get(0).isJsonNull() ? null : PieceType.values()[data.get(0).getAsInt()],
+                        data.get(1).isJsonNull() ? null : PlayerType.values()[data.get(1).getAsInt()]
                 );
                 j++;
             }
