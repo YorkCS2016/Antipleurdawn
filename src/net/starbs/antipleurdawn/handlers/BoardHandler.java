@@ -1,5 +1,6 @@
 package net.starbs.antipleurdawn.handlers;
 
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.FlowPane;
@@ -71,5 +72,7 @@ public class BoardHandler implements HandlerInterface
         } else {
             System.out.println("You are a burden on modern society.");
         }
+        
+        Platform.exit();
     }
 }
