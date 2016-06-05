@@ -24,7 +24,8 @@ public class BoardHandler implements HandlerInterface
 
     public void onGameUpdated(GameUpdatedEvent event)
     {
-    	displayCapturedPieces(event.getPiecesTakenBy(client.getPlayer()), event.getPiecesTakenBy(client.getOpponent()));
+    	// TODO
+    	// displayCapturedPieces(event.getPiecesTakenBy(client.getPlayer()), event.getPiecesTakenBy(client.getOpponent()));
 
         board.onGameUpdated(event);
 

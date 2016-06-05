@@ -23,7 +23,7 @@ public class BoardOperator implements MoveChosenEventListener
             client.move(event.getFrom(), event.getTo());
         } catch (Exception e) {
             // TODO: change this
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
