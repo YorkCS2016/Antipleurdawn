@@ -48,10 +48,10 @@ public class Main extends Application
     public void stop()
     {
         try {
-			client.forfeit();
-		} catch (Exception e) {
-			//
-		}
+            client.forfeit();
+        } catch (Throwable e) {
+            //
+        }
     }
 
     public void updatePlayerTypeBox(Scene scene)

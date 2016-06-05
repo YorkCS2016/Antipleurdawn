@@ -6,45 +6,50 @@ import javafx.scene.layout.StackPane;
 
 public class Square extends StackPane
 {
-    public Piece piece;
+    private int row;
 
-    public int getRow() {
-        return x;
-    }
+    private int col;
 
-    public int getCol() {
-        return y;
-    }
+    public Square(int row, int col)
+    {
+        this.row = row;
+        this.col = col;
 
-    private int x;
-    private int y;
+        String colour;
 
-    public Square(int x, int y){
-        this.x = x;
-        this.y = y;
-
-        String color;
-
-        if ((x + y) % 2 == 0) {
-            color = "#837EB1";//light
+        if ((row + col) % 2 == 0) {
+            colour = "#837EB1";//light
         } else {
-            color = "#0D083B";//dark
+            colour = "#0D083B";//dark
         }
+
         getStyleClass().add("square");
-        setStyle("-fx-background-color: " + color + ";");
+        setStyle("-fx-background-color: " + colour + ";");
         getChildren().add(new Group());
     }
 
-    public void setPiece(Piece piece) {
-        this.piece = piece;
+    public int getRow()
+    {
+        return row;
+    }
+
+    public int getCol()
+    {
+        return col;
+    }
+
+    public void setPiece(Piece piece)
+    {
         getChildren().set(0, piece.getImage());
     }
 
-    public void select(){
+    public void select()
+    {
         getStyleClass().add("selected");
     }
 
-    public void deselect() {
+    public void deselect()
+    {
         getStyleClass().remove("selected");
     }
 }
