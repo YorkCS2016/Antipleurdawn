@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import net.starbs.antipleurdawn.PlayerType;
 import net.starbs.antipleurdawn.exceptions.HttpClientException;
+import net.starbs.antipleurdawn.exceptions.InvalidGameException;
 import net.starbs.antipleurdawn.exceptions.InvalidMoveException;
 import net.starbs.antipleurdawn.exceptions.OpponentMovingException;
 
@@ -48,18 +49,31 @@ public class Client
         try {
             http.send(uri);
         } catch (HttpClientException e) {
-            if (e.getResponse().getCode() == 400) {
+            switch (e.getResponse().getCode()) {
+            case 400:
                 throw new InvalidMoveException();
-            }
-
-            if (e.getResponse().getCode() == 403) {
+            case 403:
                 throw new OpponentMovingException();
+            case 404:
+                throw new InvalidGameException();
+            default:
+                throw e;
             }
         }
     }
 
     public void forfeit() throws IOException
     {
-        http.send("game/" + game + "/forfeit?player=" + (player == PlayerType.WHITE ? "0" : "1"));
+        try {
+            http.send("game/" + game + "/forfeit?player=" + (player == PlayerType.WHITE ? "0" : "1"));
+        } catch (HttpClientException e) {
+            switch (e.getResponse().getCode()) {
+            case 404:
+                throw new InvalidGameException();
+            default:
+                throw e;
+            }
+        }
+
     }
 }
