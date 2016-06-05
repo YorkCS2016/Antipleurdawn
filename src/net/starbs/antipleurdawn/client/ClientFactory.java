@@ -14,7 +14,7 @@ public class ClientFactory
 
     public ClientFactory()
     {
-        http = new HttpClient(URI);
+        this(URI);
     }
 
     public ClientFactory(String uri)

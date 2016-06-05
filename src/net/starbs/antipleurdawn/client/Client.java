@@ -10,7 +10,9 @@ import net.starbs.antipleurdawn.exceptions.OpponentMovingException;
 public class Client
 {
     private HttpClient http;
+
     private String game;
+
     private PlayerType player;
 
     public Client(HttpClient http, String game, PlayerType player)

@@ -11,6 +11,8 @@ import net.starbs.antipleurdawn.exceptions.HttpServerException;
 
 public class HttpClient
 {
+	public static final String AGENT = "antiplerdawn/1.0";
+	
     private String uri;
 
     public HttpClient(String uri)
@@ -25,7 +27,7 @@ public class HttpClient
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
 
         con.setRequestMethod("POST");
-        con.setRequestProperty("User-Agent", "antiplerdawn/1.0");
+        con.setRequestProperty("User-Agent", AGENT);
 
         con.setDoOutput(true);
         DataOutputStream wr = new DataOutputStream(con.getOutputStream());
