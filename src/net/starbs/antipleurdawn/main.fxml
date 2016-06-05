@@ -9,7 +9,7 @@
                     <Label id="title" text="" />
                 </left>
                 <right>
-                    <Label id="playerDesc" styleClass="up1" text="White Player" />
+                    <Label id="playerDesc" styleClass="up1, white" text="White Player" />
                 </right>
             </BorderPane>
         </top>
@@ -29,7 +29,7 @@
             </StackPane>
         </right>
     </BorderPane>
-    <StackPane id="overlay">
+    <StackPane style="visibility: hidden" id="overlay">
         <StackPane styleClass="overlayBackground">
         </StackPane>
         <StackPane styleClass="waitingBox">

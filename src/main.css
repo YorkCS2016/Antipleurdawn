@@ -1,33 +1,39 @@
-*{
-
-}
-
-.selected{
-    -fx-border-style: solid;
-    -fx-border-width: 3px;
-    -fx-border-color: #a8a52e !important;
-    -fx-padding: 0px !important;
-}
+/**General**/
 
 #main{
     -fx-padding:20px;
     -fx-background-color: #393276;
 }
 
-#title{
-
+.up1{
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.26), 10, 0.12, -1, 2);/*dropshadow(gaussian, rgba(0,0,0,0.26), 10, 0.12, -1, 2)*/
 }
 
-.square{
-    -fx-border-style: solid;
-    -fx-padding: 3px;
-    -fx-min-width: 46px;
-    -fx-min-height: 46px;
+#topPanel{
+    -fx-padding:5px;
 }
 
-.square:hover{
-    -fx-border-color: #3b3b3b;
+#title {
+    -fx-padding: 15px;
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial";
 }
+
+#playerDesc.white{
+    -fx-background-color: #837EB1;
+}
+
+#playerDesc.black{
+    -fx-background-color: #0D083B;
+}
+
+#playerDesc{
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial";
+    -fx-padding:10px;
+}
+
+/**Panels**/
 
 .panelCont1{
     -fx-padding: 0 10px 0 0;
@@ -44,30 +50,31 @@
     -fx-border-width: 2px;
 }
 
+/**Board**/
+
+.selected{
+    -fx-border-style: solid;
+    -fx-border-width: 3px;
+    -fx-border-color: #a8a52e !important;
+    -fx-padding: 0px !important;
+}
+
+.square{
+    -fx-border-style: solid;
+    -fx-padding: 3px;
+    -fx-min-width: 46px;
+    -fx-min-height: 46px;
+}
+
+.square:hover{
+    -fx-border-color: #3b3b3b;
+}
+
 #board{
     -fx-border-style: solid;
 }
 
-#topPanel{
-    -fx-padding:5px;
-}
-
-#playerDesc{
-    -fx-font-size: 20px;
-    -fx-font-family: "Arial";
-    -fx-background-color: #837EB1;
-    -fx-padding:10px;
-}
-
-#title {
-    -fx-padding: 15px;
-    -fx-font-size: 20px;
-    -fx-font-family: "Arial";
-}
-
-#overlay{
-    visibility: hidden;
-}
+/**Overlay**/
 
 .overlayBackground {
     -fx-background-color: radial-gradient(/*center 20 20, */ radius 100%, darkgray, black);
@@ -85,8 +92,4 @@
 
 .waitingBox > * {
     -fx-text-fill: white;
-}
-
-.up1{
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.26), 10, 0.12, -1, 2);/*dropshadow(gaussian, rgba(0,0,0,0.26), 10, 0.12, -1, 2)*/
 }
