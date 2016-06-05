@@ -10,13 +10,18 @@
 }
 
 #topPanel{
-    -fx-padding:5px;
+    -fx-padding: 5 5 10 5;
 }
 
-#title {
-    -fx-padding: 15px;
+#title{
+    -fx-padding: 0 0 0 2;
+}
+
+#titleText {
     -fx-font-size: 20px;
     -fx-font-family: "Arial";
+    -fx-text-fill: #837EB1;
+    -fx-padding: 8 0 0 12;
 }
 
 #playerDesc.white{
