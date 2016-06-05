@@ -1,40 +1,67 @@
 *{
-    -fx-background-color: #abb8ff;
+    -fx-background-color: #393276;
+}
+
+#main{
+    -fx-padding: 200px;
 }
 
 .selected{
     -fx-border-style: solid;
     -fx-border-width: 3px;
-    -fx-border-color: #26204c;
+    -fx-border-color: #a8a52e !important;
+    -fx-padding: 0px !important;
+}
+
+#title{
+
 }
 
 .square{
-    /*-fx-padding: -100000px;FIXME: This shouldn't be necessary*/
     -fx-border-style: solid;
+    -fx-padding: 3px;
+    -fx-min-width: 46px;
+    -fx-min-height: 46px;
 }
 
-* > .square{
-    /*-fx-padding: -100000px;FIXME: This shouldn't be necessary*/
-    -fx-border-style: solid;
+.square:hover{
+    -fx-border-color: #3b3b3b;
+}
+
+.panelCont1{
+    -fx-padding: 0 10px 0 0;
+}
+
+.panelCont2{
+    -fx-padding: 0 0 0 10px;
 }
 
 .panels{
     -fx-padding: 10px;
-    -fx-background-color: #8995d0;
+    -fx-background-color: #1F1959;
     -fx-border-style: solid;
     -fx-border-width: 2px;
-    -fx-border-insets: 0 5px 0 5px;
 }
 
-.board{
+#board{
     -fx-border-style: solid;
 }
 
-.topPanel{
+#topPanel{
+    -fx-padding:5px;
+}
+
+#playerDesc{
     -fx-font-size: 20px;
     -fx-font-family: "Arial";
-    -fx-padding: 20px;
-    -fx-alignment: top-left;
+    -fx-background-color: #837EB1;
+    -fx-padding:10px;
+}
+
+#title{
+    -fx-padding: 15px;
+    -fx-font-size: 20px;
+    -fx-font-family: "Arial";
 }
 
 .overlay{
@@ -47,4 +74,8 @@
 .waitingBox{
     -fx-padding: 100px;
     -fx-text-fill: white;
+}
+
+.up1{
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.26), 10, 0.12, -1, 2);/*dropshadow(gaussian, rgba(0,0,0,0.26), 10, 0.12, -1, 2)*/
 }

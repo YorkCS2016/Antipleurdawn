@@ -30,9 +30,9 @@ public class Square extends StackPane {
         String color;
 
         if ((x + y) % 2 == 0) {
-            color = "white";
+            color = "#837EB1";//light
         } else {
-            color = "grey";
+            color = "#0D083B";//dark
         }
         getStyleClass().add("square");
         setStyle("-fx-background-color: " + color + ";");

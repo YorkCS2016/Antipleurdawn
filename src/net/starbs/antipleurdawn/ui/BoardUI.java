@@ -16,8 +16,6 @@ import java.util.ArrayList;
 public class BoardUI extends GridPane {
     public Square[][] squares = new Square[8][8];
     private Square selectedSquare = null;
-    private ColumnConstraints colConstraint = new ColumnConstraints();
-    private RowConstraints rowConstraints = new RowConstraints();
 
     private ArrayList<MoveChosenEventListener> event_listeners = new ArrayList<MoveChosenEventListener>();;
 
@@ -79,18 +77,5 @@ public class BoardUI extends GridPane {
                 squares[x][y] = sq;
             }
         }
-
-        //onSizeChange();
-        colConstraint.setPercentWidth(12.5);
-        rowConstraints.setPercentHeight(12.5);
-
-        for (int i = 0; i < 8; i++) {
-            getColumnConstraints().add(colConstraint);
-            getRowConstraints().add(rowConstraints);
-        }
-        //pane.heightProperty().
-
-        //pane.getScene().heightProperty().addListener((x, y, z) -> onSizeChange());
-        //pane.getScene().widthProperty().addListener((x, y, z) -> onSizeChange());
     }
 }

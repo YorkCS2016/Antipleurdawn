@@ -1,28 +1,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import net.starbs.antipleurdawn.ui.* ?>
-<StackPane>
+<StackPane id="main">
     <BorderPane>
         <top>
-            <BorderPane>
+            <BorderPane id="topPanel">
                 <left>
-                    <Label text="Anti Chess" />
+                    <Label id="title" text="" />
                 </left>
                 <right>
-                    <Label text="White Player" />
+                    <Label id="playerDesc" styleClass="up1" text="White Player" />
                 </right>
             </BorderPane>
         </top>
         <center>
-            <BoardUI styleClass="board" id="board"/>
+            <BoardUI styleClass="up1" id="board"/>
         </center>
         <left>
-            <FlowPane prefWrapLength="130" styleClass="panels">
-            </FlowPane>
+            <StackPane styleClass="panelCont1">
+                <FlowPane prefWrapLength="130" styleClass="panels, up1">
+                </FlowPane>
+            </StackPane>
         </left>
         <right>
-            <FlowPane prefWrapLength="130" styleClass="panels">
-            </FlowPane>
+            <StackPane styleClass="panelCont2">
+                <FlowPane prefWrapLength="130" styleClass="panels, up1">
+                </FlowPane>
+            </StackPane>
         </right>
     </BorderPane>
 </StackPane>

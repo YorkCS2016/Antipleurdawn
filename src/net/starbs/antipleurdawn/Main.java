@@ -28,7 +28,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
 
-        Scene main = new Scene(root, 670, 400, false, SceneAntialiasing.BALANCED);
+        Scene main = new Scene(root, 710, 440, false, SceneAntialiasing.BALANCED);
 
         main.getStylesheets().add("file:src/main.css");
 
@@ -38,14 +38,13 @@ public class Main extends Application {
         primaryStage.setScene(main);
         primaryStage.setTitle("Anti Chess");
         primaryStage.setResizable(false);
-        primaryStage.show();
+
         /*
         yourTakenPieces.displayPieces(new Piece[]{
                 new Piece(PieceType.BISHOP, PlayerType.WHITE)
-        });
+        });*/
+        primaryStage.show();
 
-        board.squares[0][0].setPiece(new Piece(PieceType.BISHOP, PlayerType.WHITE));
-        */
     }
 
     void onGameUpdated(GameUpdatedEvent event) {
