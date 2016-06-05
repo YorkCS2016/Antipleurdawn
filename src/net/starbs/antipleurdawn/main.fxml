@@ -14,7 +14,7 @@
             </BorderPane>
         </top>
         <center>
-            <BoardUI styleClass="board" id="board"/>
+            <Board styleClass="board" id="board"/>
         </center>
         <left>
             <FlowPane prefWrapLength="130" styleClass="panels">
