@@ -8,6 +8,7 @@ import javafx.scene.SceneAntialiasing;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.client.Client;
 import net.starbs.antipleurdawn.client.ClientFactory;
+import net.starbs.antipleurdawn.events.GameEndedEvent;
 import net.starbs.antipleurdawn.events.GameUpdatedEvent;
 import net.starbs.antipleurdawn.ui.Board;
 
@@ -49,13 +50,20 @@ public class Main extends Application
 
     }
 
-    void onGameUpdated(GameUpdatedEvent event)
-    {
+    public void onGameUpdated(GameUpdatedEvent event) {
         board.onGameUpdated(event);
         if (event.getCurrentPlayer() == client.getPlayer()) {
             System.out.println("Make your move now.");
         } else {
             System.out.println("Opponent is making a move.");
+        }
+    }
+
+    public void onGameEnded(GameEndedEvent event) {
+        if(event.getWinner() == client.getPlayer()) {
+            System.out.println("You win!");
+        } else {
+            System.out.println("You are a burden on modern society.");
         }
     }
 
