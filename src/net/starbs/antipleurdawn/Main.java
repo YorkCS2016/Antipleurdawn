@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 import javafx.scene.control.Label;
+import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.client.*;
 import net.starbs.antipleurdawn.handlers.BoardHandler;
@@ -11,6 +12,9 @@ import net.starbs.antipleurdawn.pusher.PusherBinder;
 import net.starbs.antipleurdawn.ui.*;
 
 import java.io.IOException;
+
+import com.sun.media.jfxmedia.Media;
+import com.sun.media.jfxmedia.MediaPlayer;
 
 public class Main extends Application
 {
@@ -42,6 +46,8 @@ public class Main extends Application
 
         primaryStage.show();
         updatePlayerTypeBox(scene);
+        
+        (new Music()).play();
     }
 
     @Override
@@ -54,7 +60,7 @@ public class Main extends Application
         }
     }
 
-    public void updatePlayerTypeBox(Scene scene)
+    private void updatePlayerTypeBox(Scene scene)
     {
         Label desc = (Label) scene.lookup("#playerDesc");
 
