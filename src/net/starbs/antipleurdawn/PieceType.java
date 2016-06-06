@@ -1,10 +1,10 @@
 package net.starbs.antipleurdawn;
 
 public enum PieceType {
-    PAWN,
-    KNIGHT,
-    BISHOP,
-    ROOK,
+    KING,
     QUEEN,
-    KING
+    BISHOP,
+    KNIGHT,
+    ROOK,
+    PAWN,
 }
