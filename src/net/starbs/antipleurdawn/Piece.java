@@ -5,7 +5,7 @@ import javafx.scene.Node;
 
 public class Piece
 {
-    public static final String LOCATION = "img/pieces.png";
+    public static final String LOCATION = "https://negasaurus.starbs.net/pieces.png";
 
     private PieceType piece;
 
@@ -33,7 +33,7 @@ public class Piece
             return new Group();
         }
 
-        Spritesheet ss = new Spritesheet("file:" + LOCATION, 450, 450);
+        Spritesheet ss = new Spritesheet(LOCATION, 450, 450);
 
         return ss.getSubImageCanvas(piece.ordinal(), player.ordinal(), 40, 40);
     }

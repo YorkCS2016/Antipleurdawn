@@ -5,19 +5,19 @@ import javafx.scene.media.MediaPlayer;
 
 public class Music
 {
-	public static final String URI = "https://negasaurus.starbs.net/music.mp3";
+    public static final String URI = "https://negasaurus.starbs.net/music.mp3";
 
-	private Media media;
-	
-	public Music()
-	{
-		this(URI);
-	}
+    private Media media;
 
-	public Music(String uri)
-	{
-		media = new Media(uri);
-	}
+    public Music()
+    {
+        this(URI);
+    }
+
+    public Music(String uri)
+    {
+        media = new Media(uri);
+    }
 
     public void play()
     {

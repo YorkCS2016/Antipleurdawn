@@ -10,7 +10,7 @@
                 <left>
                     <HBox id="title">
                         <ImageView fitWidth="40" preserveRatio="true" smooth="true">
-                            <Image url="file:img/logo.png">
+                            <Image url="https://negasaurus.starbs.net/logo.png">
                             </Image>
                         </ImageView>
                         <Label id="titleText" text="Anti-Chess" />

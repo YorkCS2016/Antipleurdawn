@@ -2,19 +2,18 @@ package net.starbs.antipleurdawn;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.SceneAntialiasing;
 import javafx.scene.control.Label;
-import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
-import net.starbs.antipleurdawn.client.*;
+import net.starbs.antipleurdawn.client.Client;
+import net.starbs.antipleurdawn.client.ClientFactory;
 import net.starbs.antipleurdawn.handlers.BoardHandler;
 import net.starbs.antipleurdawn.pusher.PusherBinder;
-import net.starbs.antipleurdawn.ui.*;
+import net.starbs.antipleurdawn.ui.Board;
 
 import java.io.IOException;
-
-import com.sun.media.jfxmedia.Media;
-import com.sun.media.jfxmedia.MediaPlayer;
 
 public class Main extends Application
 {
@@ -26,7 +25,7 @@ public class Main extends Application
         client = (new ClientFactory()).make();
     }
 
-    public void start(Stage primaryStage) throws IOException
+    public void start(Stage stage) throws IOException
     {
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
 
@@ -34,19 +33,20 @@ public class Main extends Application
 
         scene.getStylesheets().add("file:src/main.css");
 
+        updatePlayerTypeBox(scene);
+
         board = (Board) scene.lookup("#board");
         new BoardOperator(board, client);
 
         PusherBinder binder = (new PusherBinder(client));
         binder.bind(new BoardHandler(board, client, scene));
 
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Anti Chess");
-        primaryStage.setResizable(false);
+        stage.setScene(scene);
+        stage.setTitle("Anti Chess");
+        stage.setResizable(false);
 
-        primaryStage.show();
-        updatePlayerTypeBox(scene);
-        
+        stage.show();
+
         (new Music()).play();
     }
 

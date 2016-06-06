@@ -1,10 +1,9 @@
 package net.starbs.antipleurdawn.ui;
 
-import net.starbs.antipleurdawn.*;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
-import net.starbs.antipleurdawn.events.GameUpdatedEvent;
+import javafx.scene.layout.GridPane;
+import net.starbs.antipleurdawn.Piece;
 import net.starbs.antipleurdawn.events.MoveChosenEvent;
 import net.starbs.antipleurdawn.events.MoveChosenEventListener;
 
@@ -32,7 +31,7 @@ public class Board extends GridPane
                     }
                 });
 
-                squares[row][col] = sq;
+                squares[col][row] = sq;
             }
         }
     }
