@@ -52,21 +52,20 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
         }
     }
 
-    // TODO
-    private void displayCapturedPieces(Piece[] yourCaptures, Piece[] oppCaptures)
+    private void displayCapturedPieces(Piece[] piecesTakenByWhite, Piece[] piecesTakenByBlack)
     {
-        FlowPane yourCapturesUI = (FlowPane) scene.lookup("#yourCaptures");
-        FlowPane oppCapturesUI = (FlowPane) scene.lookup("#oppCaptures");
+        FlowPane whiteCaptures = (FlowPane) scene.lookup("#whiteCaptures");
+        FlowPane blackCaptures = (FlowPane) scene.lookup("#blackCaptures");
 
-        yourCapturesUI.getChildren().removeAll();
-        oppCapturesUI.getChildren().removeAll();
+        whiteCaptures.getChildren().removeAll();
+        blackCaptures.getChildren().removeAll();
 
-        for (Piece yourCapture : yourCaptures) {
-            yourCapturesUI.getChildren().add(yourCapture.getImage());
+        for (Piece piece : piecesTakenByWhite) {
+            whiteCaptures.getChildren().add(piece.getImage());
         }
 
-        for (Piece oppCapture: oppCaptures) {
-            oppCapturesUI.getChildren().add(oppCapture.getImage());
+        for (Piece piece: piecesTakenByBlack) {
+            blackCaptures.getChildren().add(piece.getImage());
         }
     }
 
