@@ -30,7 +30,7 @@ public class BoardHandler implements HandlerInterface
         board.displayData(event.getBoard());
 
         if (event.getCurrentPlayer() == client.getPlayer()) {
-            System.out.println("Make your move now.");
+            hideWaitingScreen();
         } else {
             displayWaitingScreen();
         }
@@ -63,6 +63,11 @@ public class BoardHandler implements HandlerInterface
 
         scene.lookup("#main").setEffect(bb);
         scene.lookup("#overlay").setStyle("visibility: visible");
+    }
+
+    private void hideWaitingScreen() {
+        scene.lookup("#main").setEffect(null);
+        scene.lookup("#overlay").setStyle("visibility: hidden");
     }
 
     public void onGameEnded(GameEndedEvent event)
