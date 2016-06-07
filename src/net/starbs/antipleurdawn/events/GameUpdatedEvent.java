@@ -61,7 +61,7 @@ public class GameUpdatedEvent implements EventInterface
         takenByBlack = new Piece[black.size()];
         i = 0;
         for (JsonElement el : black) {
-            takenByWhite[i] = new Piece(PieceType.values()[el.getAsInt()], PlayerType.WHITE);
+            takenByBlack[i] = new Piece(PieceType.values()[el.getAsInt()], PlayerType.WHITE);
             i++;
         }
     }
