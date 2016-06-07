@@ -5,7 +5,7 @@ import com.pusher.client.PusherOptions;
 import com.pusher.client.channel.Channel;
 
 import net.starbs.antipleurdawn.client.Client;
-import net.starbs.antipleurdawn.handlers.HandlerInterface;
+import net.starbs.antipleurdawn.handlers.PusherHandlerInterface;
 
 public class PusherBinder
 {
@@ -33,7 +33,7 @@ public class PusherBinder
         channel = pusher.subscribe(client.getGame());
     }
 
-    public void bind(HandlerInterface handler)
+    public void bind(PusherHandlerInterface handler)
     {
         channel.bind("GameUpdatedEvent", new PusherHandler(handler));
         channel.bind("GameEndedEvent", new PusherHandler(handler));

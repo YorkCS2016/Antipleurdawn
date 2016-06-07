@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.client.Client;
 import net.starbs.antipleurdawn.client.ClientFactory;
+import net.starbs.antipleurdawn.events.GameBootedEvent;
 import net.starbs.antipleurdawn.handlers.BoardHandler;
 import net.starbs.antipleurdawn.pusher.PusherBinder;
 import net.starbs.antipleurdawn.ui.Board;
@@ -38,16 +39,13 @@ public class Main extends Application
         board = (Board) scene.lookup("#board");
         new BoardOperator(board, client);
 
+        BoardHandler handler = new BoardHandler(board, client, scene);
         PusherBinder binder = (new PusherBinder(client));
-        binder.bind(new BoardHandler(board, client, scene));
+        binder.bind(handler);
 
-        stage.setScene(scene);
-        stage.setTitle("Anti Chess");
-        stage.setResizable(false);
+        handler.onGameBooting(new GameBootedEvent(stage));
 
         stage.show();
-
-        //(new Music()).play();
     }
 
     @Override

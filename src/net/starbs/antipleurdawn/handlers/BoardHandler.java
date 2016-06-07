@@ -3,14 +3,15 @@ package net.starbs.antipleurdawn.handlers;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.effect.BoxBlur;
-import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
 import net.starbs.antipleurdawn.Piece;
 import net.starbs.antipleurdawn.client.Client;
+import net.starbs.antipleurdawn.events.GameBootedEvent;
 import net.starbs.antipleurdawn.events.GameEndedEvent;
 import net.starbs.antipleurdawn.events.GameUpdatedEvent;
 import net.starbs.antipleurdawn.ui.Board;
 
-public class BoardHandler implements HandlerInterface
+public class BoardHandler implements BootHandlerInterface, PusherHandlerInterface
 {
     private Board board;
     private Client client;
@@ -21,6 +22,19 @@ public class BoardHandler implements HandlerInterface
         this.board = board;
         this.client = client;
         this.scene = scene;
+    }
+
+    public void onGameBooting(GameBootedEvent event)
+    {
+        Stage stage = event.getStage();
+
+        stage.setScene(scene);
+        stage.setTitle("Anti Chess");
+        stage.setResizable(false);
+
+        displayWaitingScreen();
+
+        //(new Music()).play();
     }
 
     public void onGameUpdated(GameUpdatedEvent event)
@@ -65,7 +79,8 @@ public class BoardHandler implements HandlerInterface
         scene.lookup("#overlay").setStyle("visibility: visible");
     }
 
-    private void hideWaitingScreen() {
+    private void hideWaitingScreen()
+    {
         scene.lookup("#main").setEffect(null);
         scene.lookup("#overlay").setStyle("visibility: hidden");
     }
@@ -77,7 +92,7 @@ public class BoardHandler implements HandlerInterface
         } else {
             System.out.println("You are a burden on modern society.");
         }
-        
+
         Platform.exit();
     }
 }

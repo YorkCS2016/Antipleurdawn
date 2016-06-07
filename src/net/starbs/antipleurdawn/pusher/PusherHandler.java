@@ -5,13 +5,13 @@ import com.pusher.client.channel.SubscriptionEventListener;
 import javafx.application.Platform;
 import net.starbs.antipleurdawn.events.GameEndedEvent;
 import net.starbs.antipleurdawn.events.GameUpdatedEvent;
-import net.starbs.antipleurdawn.handlers.HandlerInterface;
+import net.starbs.antipleurdawn.handlers.PusherHandlerInterface;
 
 public class PusherHandler implements SubscriptionEventListener
 {
-    private HandlerInterface handler;
+    private PusherHandlerInterface handler;
 
-    public PusherHandler(HandlerInterface handler)
+    public PusherHandler(PusherHandlerInterface handler)
     {
         this.handler = handler;
     }
