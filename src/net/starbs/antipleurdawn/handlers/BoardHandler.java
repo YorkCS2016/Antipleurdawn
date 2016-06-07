@@ -3,6 +3,7 @@ package net.starbs.antipleurdawn.handlers;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.effect.BoxBlur;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.Piece;
 import net.starbs.antipleurdawn.client.Client;
@@ -53,19 +54,19 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
     // TODO
     private void displayCapturedPieces(Piece[] yourCaptures, Piece[] oppCaptures)
     {
-//        FlowPane yourCapturesUI = (FlowPane) scene.lookup("yourCaptures");
-//        FlowPane oppCapturesUI = (FlowPane) scene.lookup("oppCaptures");
-//
-//        yourCapturesUI.getChildren().removeAll();
-//        oppCapturesUI.getChildren().removeAll();
-//
-//        for (Piece yourCapture : yourCaptures) {
-//            yourCapturesUI.getChildren().add(yourCapture.getImage());
-//        }
-//
-//        for (Piece oppCapture: oppCaptures) {
-//            oppCapturesUI.getChildren().add(oppCapture.getImage());
-//        }
+        FlowPane yourCapturesUI = (FlowPane) scene.lookup("#yourCaptures");
+        FlowPane oppCapturesUI = (FlowPane) scene.lookup("#oppCaptures");
+
+        yourCapturesUI.getChildren().removeAll();
+        oppCapturesUI.getChildren().removeAll();
+
+        for (Piece yourCapture : yourCaptures) {
+            yourCapturesUI.getChildren().add(yourCapture.getImage());
+        }
+
+        for (Piece oppCapture: oppCaptures) {
+            oppCapturesUI.getChildren().add(oppCapture.getImage());
+        }
     }
 
     private void displayWaitingScreen()
