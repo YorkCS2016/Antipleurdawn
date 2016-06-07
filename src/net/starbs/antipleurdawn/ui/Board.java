@@ -22,7 +22,7 @@ public class Board extends GridPane
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 Square sq = new Square(row, col);
-                add(sq, row, col);
+                add(sq, col, row);  // uses XY
 
                 sq.setOnMouseClicked(new EventHandler<MouseEvent>(){
                     @Override
@@ -31,7 +31,7 @@ public class Board extends GridPane
                     }
                 });
 
-                squares[col][row] = sq;
+                squares[row][col] = sq;
             }
         }
     }

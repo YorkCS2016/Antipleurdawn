@@ -47,7 +47,7 @@ public class Main extends Application
 
         stage.show();
 
-        (new Music()).play();
+        //(new Music()).play();
     }
 
     @Override
