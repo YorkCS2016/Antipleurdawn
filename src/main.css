@@ -90,13 +90,18 @@
     -fx-opacity: 30%;
 }
 
-.waitingBox{
+#waitingBox{
     -fx-max-width: 300px;
     -fx-max-height: 70px;
     -fx-background-color: black;
     -fx-fill-width: false;
 }
 
-.waitingBox > * {
+#waitingBox > * {
     -fx-text-fill: white;
+}
+
+#winningLabel{
+    -fx-font-size: 100px;
+    -fx-text-fill: #a8a52e;
 }

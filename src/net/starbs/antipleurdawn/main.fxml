@@ -39,11 +39,13 @@
             </StackPane>
         </right>
     </BorderPane>
-    <StackPane style="visibility: hidden" id="overlay">
+    <StackPane style="visibility: visible" id="overlay">
         <StackPane styleClass="overlayBackground">
         </StackPane>
-        <StackPane styleClass="waitingBox">
-            <Label text="Waiting for other player ..." />
-        </StackPane>
     </StackPane>
+    <StackPane style="visibility: hidden" id="waitingBox">
+        <Label text="Waiting for other player ...">
+        </Label>
+    </StackPane>
+    <Label style="visibility: hidden" id="winningLabel" text="You Win!" />
 </StackPane>

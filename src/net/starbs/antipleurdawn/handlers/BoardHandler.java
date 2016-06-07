@@ -76,12 +76,14 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
         bb.setIterations(1);
 
         scene.lookup("#main").setEffect(bb);
+        scene.lookup("#waitingBox").setStyle("visibility: visible");
         scene.lookup("#overlay").setStyle("visibility: visible");
     }
 
     private void hideWaitingScreen()
     {
         scene.lookup("#main").setEffect(null);
+        scene.lookup("#waitingBox").setStyle("visibility: hidden");
         scene.lookup("#overlay").setStyle("visibility: hidden");
     }
 
