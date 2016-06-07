@@ -57,8 +57,8 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
         FlowPane whiteCaptures = (FlowPane) scene.lookup("#whiteCaptures");
         FlowPane blackCaptures = (FlowPane) scene.lookup("#blackCaptures");
 
-        whiteCaptures.getChildren().removeAll();
-        blackCaptures.getChildren().removeAll();
+        whiteCaptures.getChildren().clear();
+        blackCaptures.getChildren().clear();
 
         for (Piece piece : piecesTakenByWhite) {
             whiteCaptures.getChildren().add(piece.getImage());
