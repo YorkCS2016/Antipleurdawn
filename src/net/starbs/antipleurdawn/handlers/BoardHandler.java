@@ -6,6 +6,7 @@ import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import net.starbs.antipleurdawn.Piece;
+import net.starbs.antipleurdawn.PlayerType;
 import net.starbs.antipleurdawn.client.Client;
 import net.starbs.antipleurdawn.events.GameBootedEvent;
 import net.starbs.antipleurdawn.events.GameEndedEvent;
@@ -40,7 +41,7 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
 
     public void onGameUpdated(GameUpdatedEvent event)
     {
-        displayCapturedPieces(event.getPiecesTakenBy(client.getPlayer()), event.getPiecesTakenBy(client.getOpponent()));
+        displayCapturedPieces(event.getPiecesTakenBy(PlayerType.WHITE), event.getPiecesTakenBy(PlayerType.BLACK));
 
         board.displayData(event.getBoard());
 
