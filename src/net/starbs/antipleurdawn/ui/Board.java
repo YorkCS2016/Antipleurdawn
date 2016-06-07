@@ -66,8 +66,8 @@ public class Board extends GridPane
             sq.deselect();
             selected = null;
         } else{
-            int[] from = {sq.getRow(), sq.getCol()};
-            int[] to = {selected.getRow(), selected.getCol()};
+            int[] from = {selected.getRow(), selected.getCol()};
+            int[] to = {sq.getRow(), sq.getCol()};
             fireMoveChosenEvent(new MoveChosenEvent(this, from, to));
             selected.deselect();
             selected = null;
