@@ -100,3 +100,8 @@
 .waitingBox > * {
     -fx-text-fill: white;
 }
+
+#winningLabel{
+    -fx-font-size: 100px;
+    -fx-text-fill: #a8a52e;
+}
