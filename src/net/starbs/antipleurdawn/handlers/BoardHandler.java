@@ -1,10 +1,13 @@
 package net.starbs.antipleurdawn.handlers;
 
+import javafx.animation.Transition;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import net.starbs.antipleurdawn.Piece;
 import net.starbs.antipleurdawn.PlayerType;
 import net.starbs.antipleurdawn.client.Client;
@@ -24,6 +27,8 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
         this.board = board;
         this.client = client;
         this.scene = scene;
+
+        scene.lookup("#quitButton").setOnMouseClicked(event -> Platform.exit());
     }
 
     public void onGameBooting(GameBootedEvent event)
@@ -69,7 +74,7 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
         }
     }
 
-    private void displayWaitingScreen()
+    private void displayOverlay()
     {
         BoxBlur bb = new BoxBlur();
         bb.setWidth(5);
@@ -77,25 +82,54 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
         bb.setIterations(1);
 
         scene.lookup("#main").setEffect(bb);
-        scene.lookup("#waitingBox").setStyle("visibility: visible");
         scene.lookup("#overlay").setStyle("visibility: visible");
+    }
+
+    private void hideOverlay()
+    {
+        scene.lookup("#main").setEffect(null);
+        scene.lookup("#overlay").setStyle("visibility: hidden");
+    }
+
+    private void displayWaitingScreen()
+    {
+        displayOverlay();
+        scene.lookup("#waitingBox").setStyle("visibility: visible");
     }
 
     private void hideWaitingScreen()
     {
-        scene.lookup("#main").setEffect(null);
+        hideOverlay();
         scene.lookup("#waitingBox").setStyle("visibility: hidden");
-        scene.lookup("#overlay").setStyle("visibility: hidden");
+    }
+
+    private void displayWinningScreen()
+    {
+        final int maxSize = 100;
+
+        Label winningLabel = (Label)scene.lookup("#winningLabel");
+        displayOverlay();
+        winningLabel.setStyle("visibility: visible");
+
+        Transition fontIncrease = new Transition() {
+            {
+                setCycleDuration(Duration.millis(1000));
+            }
+            @Override
+            protected void interpolate(double frac) {
+                winningLabel.setStyle("-fx-font-size: " + Math.pow(frac, 3) * maxSize + "px");
+            }
+        };
+        fontIncrease.setOnFinished(event -> scene.lookup("#endGameButtons").setStyle("visibility: visible"));
+        fontIncrease.play();
     }
 
     public void onGameEnded(GameEndedEvent event)
     {
         if (event.getWinner() == client.getPlayer()) {
-            System.out.println("You win!");
+            displayWinningScreen();
         } else {
             System.out.println("You are a burden on modern society.");
         }
-
-        Platform.exit();
     }
 }

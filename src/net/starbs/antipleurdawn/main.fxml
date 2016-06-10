@@ -3,6 +3,7 @@
 <?import javafx.scene.image.Image?>
 <?import net.starbs.antipleurdawn.ui.* ?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.Group?>
 <StackPane>
     <BorderPane id="main">
         <top>
@@ -47,5 +48,13 @@
         <Label text="Waiting for other player ...">
         </Label>
     </StackPane>
-    <Label style="visibility: hidden" id="winningLabel" text="You Win!" />
+    <VBox styleClass="endGameScreen">
+        <Label style="visibility: hidden" id="winningLabel" text="You Win!" />
+        <Label style="visibility: hidden" id="losingLabel" text="You Lose :(" />
+        <HBox style="visibility: hidden" id="endGameButtons">
+            <Button styleClass="up1" id="quitButton">
+                <text>Quit</text>
+            </Button>
+        </HBox>
+    </VBox>
 </StackPane>

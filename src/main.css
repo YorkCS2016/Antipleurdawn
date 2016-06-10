@@ -101,7 +101,26 @@
     -fx-text-fill: white;
 }
 
+/**End Game**/
+
 #winningLabel{
     -fx-font-size: 100px;
     -fx-text-fill: #a8a52e;
+}
+
+.endGameScreen{
+    -fx-alignment: center;
+}
+
+.endGameScreen *{
+    -fx-alignment: center;
+}
+
+.endGameButtons{
+    -fx-alignment: center;
+}
+
+.endGameScreen .button{
+    -fx-padding: 10 25 10 25;
+    -fx-background-insets: 5px;
 }
