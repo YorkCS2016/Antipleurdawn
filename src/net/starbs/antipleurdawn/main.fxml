@@ -49,8 +49,7 @@
         </Label>
     </StackPane>
     <VBox styleClass="endGameScreen">
-        <Label style="visibility: hidden" id="winningLabel" text="You Win!" />
-        <Label style="visibility: hidden" id="losingLabel" text="You Lose :(" />
+        <Label style="visibility: hidden" id="endGameText" />
         <HBox style="visibility: hidden" id="endGameButtons">
             <Button styleClass="up1" id="quitButton">
                 <text>Quit</text>

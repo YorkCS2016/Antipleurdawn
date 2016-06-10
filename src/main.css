@@ -103,9 +103,14 @@
 
 /**End Game**/
 
-#winningLabel{
-    -fx-font-size: 100px;
+.winningLabel{
     -fx-text-fill: #a8a52e;
+    -fx-font-size: 100px;
+}
+
+.losingLabel{
+    -fx-text-fill: black;
+    -fx-font-size: 100px;
 }
 
 .endGameScreen{

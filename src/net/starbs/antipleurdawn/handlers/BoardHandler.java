@@ -107,9 +107,12 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
     {
         final int maxSize = 100;
 
-        Label winningLabel = (Label)scene.lookup("#winningLabel");
         displayOverlay();
-        winningLabel.setStyle("visibility: visible");
+
+        Label endGameText = (Label)scene.lookup("#endGameText");
+        endGameText.setText("You Win!");
+        endGameText.getStyleClass().add("winningLabel");
+        endGameText.setStyle("visibility: visible");
 
         Transition fontIncrease = new Transition() {
             {
@@ -117,11 +120,23 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
             }
             @Override
             protected void interpolate(double frac) {
-                winningLabel.setStyle("-fx-font-size: " + Math.pow(frac, 3) * maxSize + "px");
+                endGameText.setStyle("-fx-font-size: " + Math.pow(frac, 3) * maxSize + "px");
             }
         };
         fontIncrease.setOnFinished(event -> scene.lookup("#endGameButtons").setStyle("visibility: visible"));
         fontIncrease.play();
+    }
+
+    private void displayLosingScreen(){
+        displayOverlay();
+
+        Label endGameText = (Label)scene.lookup("#endGameText");
+
+        endGameText.setText("You Lose :(");
+        endGameText.getStyleClass().add("losingLabel");
+        endGameText.setStyle("visibility: visible");
+
+        scene.lookup("#endGameButtons").setStyle("visibility: visible");
     }
 
     public void onGameEnded(GameEndedEvent event)
@@ -129,7 +144,7 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
         if (event.getWinner() == client.getPlayer()) {
             displayWinningScreen();
         } else {
-            System.out.println("You are a burden on modern society.");
+            displayLosingScreen();
         }
     }
 }
