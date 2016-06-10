@@ -11,7 +11,7 @@
                 <left>
                     <HBox id="title">
                         <ImageView fitWidth="40" preserveRatio="true" smooth="true">
-                            <Image url="https://negasaurus.starbs.net/logo.png">
+                            <Image url="https://negasaurus.memetrash.co.uk/logo.png">
                             </Image>
                         </ImageView>
                         <Label id="titleText" text="Anti-Chess" />

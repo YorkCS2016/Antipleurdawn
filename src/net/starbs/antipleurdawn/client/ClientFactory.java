@@ -8,7 +8,7 @@ import net.starbs.antipleurdawn.PlayerType;
 
 public class ClientFactory
 {
-    public static final String URI = "https://negasaurus.starbs.net/";
+    public static final String URI = "https://negasaurus.memetrash.co.uk/";
 
     private HttpClient http;
 

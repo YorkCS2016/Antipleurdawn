@@ -5,7 +5,7 @@ import javafx.scene.Node;
 
 public class Piece
 {
-    public static final String LOCATION = "https://negasaurus.starbs.net/pieces.png";
+    public static final String LOCATION = "https://negasaurus.memetrash.co.uk/pieces.png";
 
     private PieceType piece;
 
