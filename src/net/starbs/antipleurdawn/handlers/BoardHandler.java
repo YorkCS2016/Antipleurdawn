@@ -107,6 +107,8 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
     {
         final int maxSize = 100;
 
+        scene.lookup("#endGameScreen").setStyle("visibility: visible");
+
         displayOverlay();
 
         Label endGameText = (Label)scene.lookup("#endGameText");
@@ -129,6 +131,8 @@ public class BoardHandler implements BootHandlerInterface, PusherHandlerInterfac
 
     private void displayLosingScreen(){
         displayOverlay();
+
+        scene.lookup("#endGameScreen").setStyle("visibility: visible");
 
         Label endGameText = (Label)scene.lookup("#endGameText");
 

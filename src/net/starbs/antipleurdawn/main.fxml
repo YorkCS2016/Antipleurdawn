@@ -48,7 +48,7 @@
         <Label text="Waiting for other player ...">
         </Label>
     </StackPane>
-    <VBox styleClass="endGameScreen">
+    <VBox style="visibility: hidden" id="endGameScreen">
         <Label style="visibility: hidden" id="endGameText" />
         <HBox style="visibility: hidden" id="endGameButtons">
             <Button styleClass="up1" id="quitButton">

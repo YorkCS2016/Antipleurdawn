@@ -113,11 +113,11 @@
     -fx-font-size: 100px;
 }
 
-.endGameScreen{
+#endGameScreen{
     -fx-alignment: center;
 }
 
-.endGameScreen *{
+#endGameScreen *{
     -fx-alignment: center;
 }
 
@@ -125,7 +125,7 @@
     -fx-alignment: center;
 }
 
-.endGameScreen .button{
+#endGameScreen .button{
     -fx-padding: 10 25 10 25;
     -fx-background-insets: 5px;
 }
